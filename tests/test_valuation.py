@@ -36,4 +36,24 @@ class TestValuation(unittest.TestCase):
         self.assertEqual(r['current_pe'],4)
         self.assertEqual(r['samples'][0]['pe'],3)
 
+
+class TestCoverageHardening(unittest.TestCase):
+    def test_very_high_outlier_excluded_from_reference(self):
+        from update_valuation import filter_reference_observations
+        obs=[{'period':f'202{i//4}-{i%4*3+1:02d}-01','pe':22+(i%7)} for i in range(20)]
+        obs[10]['pe']=3331.85
+        kept,excluded=filter_reference_observations(obs)
+        self.assertEqual(len(kept),19)
+        self.assertEqual(excluded[0]['pe'],3331.85)
+
+    def test_diluted_eps_fallback_when_shares_missing(self):
+        row={'end':'2026-03-31','ttm':{'netIncome':1000,'epsDiluted':5},'q':{}}
+        self.assertEqual(asof_pe(row, 50, __import__('datetime').date(2026,10,30), []), 10)
+
+    def test_split_close_to_quarter_excludes_ambiguous_pe(self):
+        from update_valuation import split_in_earnings_window
+        row={'end':'2024-08-31','filed':'2024-10-01'}
+        self.assertTrue(split_in_earnings_window(row,[{'date':'2024-09-12','ratio':4}]))
+        self.assertFalse(split_in_earnings_window(row,[{'date':'2014-09-12','ratio':4}]))
+
 if __name__=='__main__': unittest.main()

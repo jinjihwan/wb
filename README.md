@@ -109,3 +109,13 @@ python -m http.server 8000
 GitHub Actions의 기존 `데이터 수집 및 GitHub Pages 배포`가 SEC·시세 수집 뒤 `scripts/update_valuation.py`를 실행하고, `valuation.json`, `valuation_history.json`을 저장합니다. 주가 이력은 기본 21일간 캐시하며, 최초에는 각 기업별 Yahoo Finance 과거 가격 요청이 추가됩니다. 워크플로 완료 후 사이트를 새로고침하면 됩니다.
 
 기존 수집 데이터 `data/financials.json`, `data/prices.json`은 수정 ZIP에 **넣지 않았습니다**. 기존 데이터가 보존되도록 수정 파일만 덮어쓰기 하세요. 새로운 `filed` 날짜 정보가 빠진 캐시 기업은 SEC에서 다시 갱신합니다.
+
+
+## 2026-11 데이터 품질 점검 및 PER 보정
+
+- `scripts/audit_collection.py`는 매번 수집 후 `data/collection_status.csv` 및 `data/collection_status.json`을 생성합니다. 사이트 전체 기업 목록 아래의 **데이터 누락 점검표 CSV** 링크에서 직접 받을 수 있습니다. 이 파일은 해당 기업의 재무 항목과 주가 수집 상태를 검사하며, 공시되지 않은 지표를 임의 보충하지 않습니다.
+- SEC 희석 가중평균 주식 수가 없는 경우, SEC에 보고된 `EarningsPerShareDiluted` 등 희석 EPS를 **보조 수단**으로 수집합니다. 주식수와 GAAP EPS 모두 없는 경우 현재 PER은 계속 비어 있을 수 있습니다.
+- 주식분할 전후 12개월 주변의 EPS·주식수 비교는 이중 조정 위험 때문에 PER 계산에서 제외합니다. 극단적인 과거 PER 관측치는 통계적으로 검출하여 **10년 비교 평균에서 제외**하지만 `excluded_samples`에 원자료를 남깁니다. 과거 평균은 원자료 전체에 대한 단순산술평균이 아닌 **이상치 제외 참고 평균**입니다.
+- 해외 보고통화와 미국 상장 주가 통화가 불일치하는 종목은 환율 및 ADR 주식 비율 정보 없이 PER을 계산하지 않습니다.
+- 이 수정은 전체 81개 기업의 데이터 완전성을 보장하지 않습니다. 회사별 맞춤 XBRL 태그, 52/53주 회계연도, 공시가 누락된 구간은 별도 검토가 필요합니다.
+- 기존 `data/financials.json`, `data/prices.json`, `data/valuation_history.json`은 덮어쓰지 않습니다. `FINANCIAL_SCHEMA_VERSION` 변경으로 다음 GitHub Actions 실행에 SEC 재수집을 시도하고, 이후 72시간 캐시를 사용합니다. **시간제한이나 자동 취소를 추가하지 않았습니다.**

@@ -30,3 +30,12 @@ class TestFinance(unittest.TestCase):
     def test_empty_data(self):
         self.assertEqual(compute_rows({'facts':{}},'CTAS'),[])
 if __name__=='__main__':unittest.main()
+
+class TestPerShareFacts(unittest.TestCase):
+    def test_diluted_eps_usd_per_share(self):
+        from update_financials import fact_entries, FLOW_TAGS, quarter_flows
+        facts={'us-gaap':{'EarningsPerShareDiluted':{'units':{'USD/shares':[
+            {'form':'10-Q','fy':2026,'fp':'Q1','start':'2026-01-01',
+             'end':'2026-03-31','filed':'2026-04-20','val':1.25}]}}}}
+        out=quarter_flows(fact_entries(facts,FLOW_TAGS['epsDiluted'],'USD/shares'))
+        self.assertEqual(out[(2026,1)][1],1.25)

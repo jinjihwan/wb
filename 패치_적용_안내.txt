@@ -1,0 +1,26 @@
+[81개 기업 데이터 보완 패치 / 2026-11-01]
+
+1. 기존 GitHub Pages와 81개 관심 기업을 그대로 유지하면서 파일만 덮어씁니다.
+2. ZIP 안의 index.html, README.md, js/, scripts/, tests/, .github/workflows/ 의 파일만 교체합니다.
+3. 중요한 파일 data/financials.json, data/prices.json, data/valuation_history.json,
+   data/watchlists.json, config/alerts.json 등은 절대 삭제하거나 교체하지 마세요.
+4. 소스 코드를 커밋하면 GitHub Actions가 자동 실행되어 변경된 수집 스키마에 맞춰 재수집합니다.
+   자동 실행이 없다면 Actions > 해당 워크플로 > Run workflow에서
+   force_financials를 true로 체크하여 1회 실행합니다.
+5. 배포 후 사이트 목록 아래 '데이터 누락 점검표 CSV'를 눌러 81개 현황을 확인합니다.
+6. 해외기업 UL/RACE/RELX 및 SEC 원공시에 없는 항목은 자동으로 채워지지 않습니다.
+7. 시험환경에서 Python 15개 단위테스트 및 JavaScript 구문 확인은 통과했습니다.
+   실제 SEC/Yahoo의 실시간 재수집과 GitHub Pages 배포는 여기서 실행하지 않았습니다.
+
+[GitHub Codespaces를 이용하는 경우]
+ - 먼저 ZIP을 github 저장소 루트에 Upload files로 업로드합니다.
+ - Code > Codespaces > 저장소 Codespace 실행 > 터미널에서 아래 명령을 입력합니다.
+   git pull --rebase origin main
+   unzip -oq wb-data-repair-20261101.zip
+   rm wb-data-repair-20261101.zip
+   git add -A
+   git commit -m "Improve SEC data coverage and P/E checks"
+   git push
+ - 코드 push 직후 Actions 자동 실행을 확인하세요. 실행되지 않을 때만 수동 재수집합니다.
+
+ZIP 파일 자체만 GitHub에 업로드하고 압축을 풀지 않으면 코드 수정은 적용되지 않습니다.

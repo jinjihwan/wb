@@ -63,11 +63,13 @@ jobs:
         run: python scripts/update_prices.py
       - name: Build trailing and historical P/E
         run: python scripts/update_valuation.py
+      - name: Audit missing financial metrics and PER coverage
+        run: python scripts/audit_collection.py
       - name: Save fetched public data to repository
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/financials.json data/prices.json data/alert_state.json data/valuation.json data/valuation_history.json
+          git add data/financials.json data/prices.json data/alert_state.json data/valuation.json data/valuation_history.json data/collection_status.json data/collection_status.csv
           if ! git diff --cached --quiet; then
             git commit -m "chore: refresh public market data [skip ci]"
             # A second commit might reach main while this long workflow runs.

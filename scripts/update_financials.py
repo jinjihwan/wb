@@ -31,6 +31,9 @@ FLOW_TAGS = {
     'pretaxIncome': ['IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest', 'IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments', 'ProfitLossBeforeTax'],
     'interestExpense': ['InterestExpense', 'InterestExpenseNonOperating', 'FinanceCosts'],
     'shares': ['WeightedAverageNumberOfDilutedSharesOutstanding', 'WeightedAverageNumberOfSharesOutstandingDiluted'],
+    # Reported diluted EPS is a safer fall-back when diluted shares are not
+    # present in SEC Company Facts (e.g. multi-class issuers).
+    'epsDiluted': ['EarningsPerShareDiluted', 'DilutedEarningsLossPerShare', 'DilutedEarningsPerShare'],
 }
 INSTANT_TAGS = {
     'cash': ['CashAndCashEquivalentsAtCarryingValue', 'CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents', 'CashAndCashEquivalents'],
@@ -40,6 +43,7 @@ INSTANT_TAGS = {
     'currentDebt': ['LongTermDebtCurrent', 'LongTermDebtAndCapitalLeaseObligationsCurrent', 'CurrentPortionOfLongTermDebt', 'CurrentPortionOfLongTermBorrowings'],
     'shortDebt': ['ShortTermBorrowings', 'ShortTermDebt', 'ShortTermLoansPayable'],
 }
+FINANCIAL_SCHEMA_VERSION = 2
 FINANCIAL_TICKERS = {'AXP', 'BAC', 'PGR', 'CB', 'RLI', 'ALLY', 'COF', 'JEF', 'CBOE'}
 
 
@@ -262,7 +266,12 @@ def detect_currency(companyfacts: dict) -> str:
 
 def compute_rows(companyfacts: dict, ticker: str, currency: str = 'USD') -> list[dict]:
     facts = companyfacts.get('facts', {})
-    flow_by_name = {key: (quarter_shares if key == 'shares' else quarter_flows)(fact_entries(facts, tags, 'shares' if key == 'shares' else currency)) for key, tags in FLOW_TAGS.items()}
+    flow_by_name = {
+        key: (quarter_shares if key == 'shares' else quarter_flows)(
+            fact_entries(facts, tags,
+                'shares' if key == 'shares' else f'{currency}/shares' if key == 'epsDiluted' else currency))
+        for key, tags in FLOW_TAGS.items()
+    }
     instant_by_name = {key: quarter_instants(fact_entries(facts, tags, currency)) for key, tags in INSTANT_TAGS.items()}
     keys = set()
     for lookup in [*flow_by_name.values(), *instant_by_name.values()]:
@@ -308,7 +317,7 @@ def compute_rows(companyfacts: dict, ticker: str, currency: str = 'USD') -> list
         if r['end'] not in unique or len(r['q'])>len(unique[r['end']]['q']):
             unique[r['end']]=r
     points=sorted(unique.values(),key=lambda r:r['end'])
-    flow_keys=['revenue','operatingIncome','netIncome','cfo','capex','fcf','taxExpense','pretaxIncome','interestExpense']
+    flow_keys=['revenue','operatingIncome','netIncome','cfo','capex','fcf','taxExpense','pretaxIncome','interestExpense','epsDiluted']
     for i,p in enumerate(points):
         t={}
         if i >= 3:
@@ -373,7 +382,8 @@ def main():
         try:
             age=(dt.datetime.now(TZ)-dt.datetime.fromisoformat(date.replace('Z','+00:00'))).total_seconds()/3600 if date else 1e8
         except (ValueError,TypeError):age=1e8
-        if not force and age<max_age and all('filed' in r for r in old.get('rows', [])):
+        if (not force and age < max_age and old.get('schema_version') == FINANCIAL_SCHEMA_VERSION
+                and all('filed' in r for r in old.get('rows', []))):
             skipped+=1;continue
         cik=lookup.get(ticker) or lookup.get(aliases.get(ticker,''))
         if not cik:
@@ -384,7 +394,7 @@ def main():
             rows=compute_rows(data,ticker,currency)
             current['companies'][ticker]={
                 'name':c['name'],'ticker':ticker,'cik':cik,'currency':currency,'latest_period':rows[-1]['end'] if rows else None,
-                'updated_at':nowiso(),'rows':rows,'coverage':{'periods':len(rows),'metrics':{k:sum(1 for row in rows if row['q'].get(k) is not None or row['ttm'].get(k) is not None) for k in FLOW_TAGS.keys()}}
+                'updated_at':nowiso(),'schema_version':FINANCIAL_SCHEMA_VERSION,'rows':rows,'coverage':{'periods':len(rows),'metrics':{k:sum(1 for row in rows if row['q'].get(k) is not None or row['ttm'].get(k) is not None) for k in FLOW_TAGS.keys()}}
             }
             updated+=1
         except Exception as exc:

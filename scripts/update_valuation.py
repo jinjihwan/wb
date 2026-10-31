@@ -111,6 +111,20 @@ def split_factor(splits, from_date, to_date):
     return factor
 
 
+def split_in_earnings_window(row, splits):
+    """Flag a recent split where restated SEC EPS/shares may be ambiguous.
+
+    Fiscal-quarter weighted shares and annual/YTD EPS can use inconsistent split
+    bases in the 12 months around a split. Do not present those P/Es as valid.
+    """
+    end = parse_date(row.get('end'))
+    filed = parse_date(row.get('filed'))
+    if not end or not filed:
+        return False
+    start = end - dt.timedelta(days=370)
+    return any(start <= (parse_date(s.get('date')) or dt.date.min) <= filed for s in splits)
+
+
 def asof_pe(row, quote_close, quote_date, splits):
     """NetIncome / diluted shares is APPROXIMATE EPS, not GAAP diluted EPS.
 
@@ -120,17 +134,42 @@ def asof_pe(row, quote_close, quote_date, splits):
     qend = parse_date(row.get('end'))
     income = tofloat((row.get('ttm') or {}).get('netIncome'))
     shares = tofloat((row.get('q') or {}).get('shares'))
-    if not qend or not income or not shares or not quote_close or not quote_date:
+    if not qend or not quote_close or not quote_date:
         return None
-    equivalent_shares = shares * split_factor(splits, qend, today())
-    eps = income / equivalent_shares
-    pe = quote_close / eps if eps > 0 else None
-    return round(pe, 3) if pe and 0 < pe < 1e5 else None
+    # SEC diluted EPS is usable as an explicitly marked fall-back only when
+    # diluted shares were unavailable. It can differ from income / shares.
+    if income and shares:
+        eps = income / (shares * split_factor(splits, qend, today()))
+    else:
+        raw_eps = tofloat((row.get('ttm') or {}).get('epsDiluted'))
+        eps = raw_eps / split_factor(splits, qend, today()) if raw_eps else None
+    pe = quote_close / eps if eps and eps > 0 else None
+    # A ratio approaching zero is nearly always an inconsistent XBRL fact.
+    return round(pe, 3) if pe and 0.5 <= pe < 1e5 else None
+
+
+def filter_reference_observations(obs):
+    """Keep the raw series, but exclude severe anomalies from the reference mean.
+
+    Sudden accounting losses and mismatched split bases can produce P/E in the
+    hundreds or thousands. This robust rule is deliberately conservative;
+    excluded observations are published for audit, not silently deleted.
+    """
+    if len(obs) < 8:
+        return list(obs), []
+    values = [r['pe'] for r in obs]
+    median = statistics.median(values)
+    mad = statistics.median(abs(x - median) for x in values)
+    upper = max(3 * median, median + 5 * mad)
+    lower = max(0.5, median / 20)
+    kept = [r for r in obs if lower <= r['pe'] <= upper]
+    excluded = [dict(r, reason='극단 PER, 분할 또는 비경상 이익 검증 필요') for r in obs if r not in kept]
+    return kept, excluded
 
 
 def compute(company, price, history):
     result = {'current_pe':None, 'average_pe_10y':None, 'median_pe_10y':None, 'ratio_to_average':None,
-              'count':0, 'samples':[], 'price_date':price.get('date'), 'financial_date':company.get('latest_period'),
+              'count':0, 'raw_count':0, 'excluded_count':0, 'excluded_samples':[], 'samples':[], 'price_date':price.get('date'), 'financial_date':company.get('latest_period'),
               'history_source':history.get('source') if history else None}
     if company.get('currency') != 'USD':
         result['note']='보고통화와 미국 상장 주가 통화 불일치: 자동 PER 제외'
@@ -151,16 +190,18 @@ def compute(company, price, history):
     if eligible:
         last = eligible[-1]
         # Protect against stale SEC filings and no released TTM figure.
-        if parse_date(last.get('filed')) >= quote_date - dt.timedelta(days=500):
+        if (parse_date(last.get('filed')) >= quote_date - dt.timedelta(days=500)
+                and not split_in_earnings_window(last, splits)):
             result['current_pe'] = asof_pe(last, quote_close, quote_date, splits)
-            result['eps_ttm_approx'] = round((last.get('ttm', {}).get('netIncome') or 0) /
-                ((last.get('q', {}).get('shares') or 1) * split_factor(splits, parse_date(last['end']), today())), 5) \
-                if result['current_pe'] is not None else None
+            if result['current_pe'] is not None:
+                result['eps_ttm_approx'] = round(quote_close / result['current_pe'], 5)
+                if not tofloat((last.get('q') or {}).get('shares')):
+                    result['eps_source'] = 'SEC 보고 희석 EPS(TTM) 대체값'
     monthly = sorted([(parse_date(r.get('date')), tofloat(r.get('close'))) for r in (history or {}).get('monthly', [])], key=lambda x: x[0] or dt.date.min)
     obs=[]
     for row in rows:
         filed = parse_date(row.get('filed'))
-        if not filed or filed > quote_date:
+        if not filed or filed > quote_date or split_in_earnings_window(row, splits):
             continue
         # Use a price observed AFTER the earnings were made publicly available.
         candidate = next(((date, close) for date, close in monthly if date and close and date >= filed and
@@ -171,11 +212,15 @@ def compute(company, price, history):
         pe = asof_pe(row, close, d, splits)
         if pe is not None:
             obs.append({'period':row['end'],'price_date':d.isoformat(),'pe':pe})
-    # Valid quarters with negative or zero net income never enter the mean.
-    result['count'] = len(obs)
-    result['samples'] = obs
-    if len(obs) >= 8 and (parse_date(obs[-1]['period'])-parse_date(obs[0]['period'])).days >= 3*365:
-        vals=[r['pe'] for r in obs]
+    # Keep an audit trail of outliers; publish the filtered comparison series.
+    kept, excluded = filter_reference_observations(obs)
+    result['raw_count'] = len(obs)
+    result['count'] = len(kept)
+    result['excluded_count'] = len(excluded)
+    result['excluded_samples'] = excluded
+    result['samples'] = kept
+    if len(kept) >= 8 and (parse_date(kept[-1]['period'])-parse_date(kept[0]['period'])).days >= 3*365:
+        vals=[r['pe'] for r in kept]
         result['average_pe_10y']=round(statistics.mean(vals),2)
         result['median_pe_10y']=round(statistics.median(vals),2)
         if result['current_pe'] is not None:
@@ -183,6 +228,8 @@ def compute(company, price, history):
     else:
         if not result.get('note'):
             result['note']='과거 PER 관측치 부족 (최소 8개 분기, 3년 이상 필요)'
+    if result['excluded_count']:
+        result['quality_note'] = f"극단 PER 관측치 {result['excluded_count']}개를 비교 평균에서 제외; 원자료는 excluded_samples에 보관"
     return result
 
 
