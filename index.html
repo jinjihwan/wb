@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0d1518" />
+  <meta name="description" content="위대한 기업의 장기 수익성, 현금흐름, 재무건전성을 관찰하는 투자 연구 대시보드" />
+  <title>Compound · 위대한 기업 관찰실</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><div class="brand-icon">C<span>·</span></div><div><div class="brand-name">compound<span class="brand-period">.</span></div><div class="brand-sub">BUSINESS INTELLIGENCE</div></div></div>
+    <div class="side-label">WORKSPACE</div>
+    <nav class="side-nav" aria-label="기업 목록 선택">
+      <button class="side-link active" data-view="personal"><span class="nav-icon">◈</span><span>나의 위대한 기업</span><em>60</em></button>
+      <button class="side-link" data-view="berkshire"><span class="nav-icon">◉</span><span>버크셔 보유 기업</span><em>25</em></button>
+      <button class="side-link" data-view="overlap"><span class="nav-icon">◇</span><span>공통 기업</span><em>4</em></button>
+      <button class="side-link" data-view="all"><span class="nav-icon">▦</span><span>전체 기업</span><em>81</em></button>
+    </nav>
+    <div class="sidebar-separator"></div>
+    <div class="side-label">PERSONAL</div>
+    <nav class="side-nav">
+      <button class="side-link" id="only-favorites"><span class="nav-icon">☆</span><span>즐겨찾기</span><em id="favorite-count">0</em></button>
+      <button class="side-link" id="settings-link"><span class="nav-icon">⌁</span><span>가격 알림 설정</span></button>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="principle"><div class="principle-quote">“Time is the friend of the wonderful business.”</div><div class="principle-author">— Warren Buffett</div></div>
+      <div class="data-foot"><span class="status-dot" id="sidebar-dot"></span><span id="sidebar-data-state">데이터 상태 확인 중</span></div>
+    </div>
+  </aside>
+  <main class="main">
+    <header class="topbar">
+      <button id="menu-button" class="icon-btn mobile-menu" aria-label="메뉴 열기">☰</button>
+      <div class="breadcrumb">WATCHLIST <span>/</span> <strong id="breadcrumb-current">나의 위대한 기업</strong></div>
+      <div class="top-actions"><span class="top-data" id="data-updated">SEC 재무정보 · 준비 중</span><button id="help-button" class="circle-icon" title="데이터 안내" aria-label="데이터 안내">?</button><span class="avatar">BI</span></div>
+    </header>
+    <div class="content">
+      <section class="overview" id="overview">
+        <div class="eyebrow"><span class="dash"></span> THE LONG-TERM VIEW</div>
+        <div class="headline-row"><div><h1>위대한 기업을<br /><span>오래 관찰하다.</span></h1><p class="intro">가격의 소음보다, 사업의 본질에 집중하는 투자 리서치.</p></div><div class="headline-decoration" aria-hidden="true"><svg viewBox="0 0 260 130"><path d="M0 108 L28 101 L49 109 L73 82 L99 90 L130 63 L151 70 L182 36 L203 44 L231 15 L260 17" fill="none" stroke="#b7a36e" stroke-width="2"/><path d="M0 108 L28 101 L49 109 L73 82 L99 90 L130 63 L151 70 L182 36 L203 44 L231 15 L260 17 L260 130 L0 130Z" fill="url(#f)"/><defs><linearGradient id="f" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#b7a36e" stop-opacity=".23"/><stop offset="1" stop-color="#b7a36e" stop-opacity="0"/></linearGradient></defs></svg></div></div>
+        <div class="stats"><div class="stat"><div class="stat-name">관심 기업</div><div class="stat-value">60<span> 개</span></div><div class="stat-sub">직접 선정한 장기 관찰 대상</div></div><div class="stat"><div class="stat-name">버크셔 보유 상위</div><div class="stat-value">25<span> 개</span></div><div class="stat-sub">2026.06.30 · 13F 기준</div></div><div class="stat"><div class="stat-name">중복 제외</div><div class="stat-value">81<span> 개</span></div><div class="stat-sub">하나의 대시보드에서 분석</div></div><div class="stat featured-stat"><div class="stat-name">분석 기간</div><div class="stat-value">10<span> 년</span></div><div class="stat-sub">최대 40개 분기 데이터</div></div></div>
+      </section>
+      <section class="list-section" id="list-section">
+        <div class="section-heading"><div><div class="eyebrow">YOUR RESEARCH UNIVERSE</div><h2 id="list-title">나의 위대한 기업 <span>60</span></h2><p id="list-desc">선정한 우선순위를 유지하며 관찰합니다.</p></div><div class="section-right"><label class="search-box"><span>⌕</span><input type="search" id="ticker-search" placeholder="기업명 또는 티커 검색" autocomplete="off" aria-label="기업 검색"/><kbd>/</kbd></label></div></div>
+        <div class="list-controls"><div class="pill-group" id="filter-pills"><button class="pill active" data-filter="all">전체 보기</button><button class="pill" data-filter="hasdata">재무 데이터 있음</button><button class="pill" data-filter="favorites">즐겨찾기</button></div><div class="list-sort"><label for="sort-by">정렬</label><select id="sort-by"><option value="rank">등록 순서</option><option value="ticker">티커명</option><option value="name">기업명</option></select></div></div>
+        <div class="company-table-wrap"><table class="company-table"><thead><tr><th class="col-rank">순위</th><th>기업</th><th>티커</th><th class="col-price">최근 종가</th><th class="col-update">재무 기준일</th><th class="col-tag">구분</th><th class="col-star"></th></tr></thead><tbody id="companies-body"></tbody></table><div id="no-companies" class="empty-hidden empty-center">검색 조건에 맞는 기업이 없습니다.</div></div>
+        <div class="list-bottom"><span id="list-counter">기업 60개</span><span>기업을 클릭하면 10년 재무분석으로 이동합니다 <span class="arrow-glyph">↗</span></span></div>
+      </section>
+      <footer class="footer">COMPOUND RESEARCH <span>·</span> 장기 투자 연구 보조 도구 <span>·</span> 투자 권유 또는 자동 매수 신호가 아닙니다.</footer>
+    </div>
+  </main>
+</div>
+<div class="overlay" id="detail-overlay" hidden><div class="detail-panel" id="detail-panel" role="dialog" aria-modal="true" aria-label="기업 상세 분석"><div id="detail-content"></div></div></div>
+<div class="overlay" id="settings-overlay" hidden><div class="modal small-modal" role="dialog" aria-modal="true" aria-label="가격 알림 설정"><div class="modal-heading"><h2>가격 알림 설정</h2><button class="x-btn" data-close="settings">×</button></div><p class="muted">여기서 입력한 매수 관심가는 <strong>현재 브라우저에 저장</strong>됩니다. GitHub Actions에서 텔레그램 알림을 보내려면 아래 파일을 내려받아 저장소의 <code>config/alerts.json</code>에 반영하세요.</p><div id="alert-settings-list" class="alert-settings-list"></div><div class="modal-actions"><button id="download-alerts" class="primary-btn">알림 설정 JSON 내보내기 ↗</button><button id="add-alert" class="secondary-btn">+ 기업 추가</button></div><p class="hint">자동 알림 발송에는 GitHub Secrets의 <code>TELEGRAM_BOT_TOKEN</code>과 <code>TELEGRAM_CHAT_ID</code>가 필요합니다.</p></div></div>
+<div class="overlay" id="help-overlay" hidden><div class="modal" role="dialog" aria-modal="true" aria-label="데이터 설명"><div class="modal-heading"><h2>데이터 출처 · 해석 안내</h2><button class="x-btn" data-close="help">×</button></div><div class="help-copy"><p><strong>분기 재무정보:</strong> 미국 SEC EDGAR Company Facts API에서 수집합니다. 비미국 기업의 반기·연간 공시는 분기 자료가 없는 경우 공란으로 남습니다.</p><p><strong>TTM:</strong> 최근 연속된 4개 분기의 합계이며, 분기 실적이 빠져 있으면 계산하지 않습니다. ROE·ROIC는 12개월 이익과 평균 자본 기준입니다.</p><p><strong>ROIC:</strong> TTM 영업이익 × (1 − TTM 유효세율) ÷ 평균(자기자본 + 이자발생부채 − 현금). 근삿값이며, 금융업에서는 표시하지 않습니다.</p><p><strong>주가:</strong> 외부 시세 제공처의 최근 종가로, 실시간 시세가 아닙니다. 시세 공급 실패 시 누락 또는 기존 데이터로 표시합니다.</p><p><strong>버크셔 목록:</strong> 2026-06-30 기준 미국 상장 롱 포지션 13F, 동일 기업 주식 종류 합산. 신고 후 매매 내역과 비상장 자산은 반영되지 않습니다.</p><p><strong>수치:</strong> 서로 다른 회계기준, 기업의 재작성, 53주 회계연도, 인수 합병 등이 차트를 왜곡할 수 있습니다. 반드시 원공시를 확인하세요.</p></div></div></div>
+<script src="./js/app.js" defer></script>
+</body>
+</html>
