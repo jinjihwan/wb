@@ -61,14 +61,24 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python scripts/update_prices.py
+      - name: Build trailing and historical P/E
+        run: python scripts/update_valuation.py
       - name: Save fetched public data to repository
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/financials.json data/prices.json data/alert_state.json
+          git add data/financials.json data/prices.json data/alert_state.json data/valuation.json data/valuation_history.json
           if ! git diff --cached --quiet; then
             git commit -m "chore: refresh public market data [skip ci]"
-            git push
+            # A second commit might reach main while this long workflow runs.
+            for attempt in 1 2 3; do
+              if git push; then exit 0; fi
+              git fetch origin main
+              git rebase origin/main || { git rebase --abort; exit 1; }
+              sleep 2
+            done
+            echo 'Could not push updated data after three attempts.' >&2
+            exit 1
           fi
       - name: Configure Pages
         uses: actions/configure-pages@v5

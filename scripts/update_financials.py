@@ -164,7 +164,7 @@ def quarter_flows(items: list[dict]) -> dict[tuple[int, int], tuple[str, float]]
                 val = None
             if val is not None and record:
                 qvals[q] = (record['end'], val)
-                result[(fy, q)] = qvals[q]
+                result[(fy, q)] = (*qvals[q], (direct or ytd)['filed'])
         annual = byterm.get('FY', (None, None))[1]
         if annual:
             nine = byterm.get('Q3', (None, None))[1]
@@ -175,7 +175,43 @@ def quarter_flows(items: list[dict]) -> dict[tuple[int, int], tuple[str, float]]
             else:
                 val = None
             if val is not None:
-                result[(fy, 4)] = (annual['end'], val)
+                result[(fy, 4)] = (annual['end'], val, annual['filed'])
+    return result
+
+
+def quarter_shares(items: list[dict]) -> dict[tuple[int, int], tuple[str, float, str]]:
+    """Quarterly weighted-average diluted shares are averages, NOT additive flows.
+
+    Convert cumulative shares to discrete-quarter averages with day weighting;
+    do not derive Q4 by subtracting averages as if they were earnings.
+    """
+    groups: dict[int, dict[str, list[dict]]] = defaultdict(lambda: defaultdict(list))
+    for item in items:
+        if item['days'] is not None:
+            groups[item['fy']][item['fp']].append(item)
+    result = {}
+    for fy, periods in groups.items():
+        cumulative = {}
+        for q, term in enumerate(('Q1', 'Q2', 'Q3', 'FY'), 1):
+            options = periods.get(term, [])
+            lo, hi = {1:(60,127),2:(155,245),3:(245,332),4:(331,401)}[q]
+            ytd = preferred([r for r in options if lo <= r['days'] <= hi])
+            direct = preferred([r for r in options if 60 <= r['days'] <= 127]) if q < 4 else None
+            if ytd:
+                cumulative[q] = ytd
+            if direct:
+                val, source = direct['val'], direct
+            elif ytd and q == 1:
+                val, source = ytd['val'], ytd
+            elif ytd and (q-1) in cumulative:
+                prev = cumulative[q-1]
+                elapsed = ytd['days'] - prev['days']
+                val = (ytd['val']*ytd['days'] - prev['val']*prev['days'])/elapsed if elapsed > 0 else None
+                source = ytd
+            else:
+                val, source = None, None
+            if val is not None and val > 0 and source:
+                result[(fy,q)] = (source['end'], val, source['filed'])
     return result
 
 
@@ -191,7 +227,7 @@ def quarter_instants(items: list[dict]) -> dict[tuple[int, int], tuple[str, floa
     for period, opts in byperiod.items():
         best = preferred(opts)
         if best:
-            result[period] = (best['end'], best['val'])
+            result[period] = (best['end'], best['val'], best['filed'])
     return result
 
 
@@ -226,7 +262,7 @@ def detect_currency(companyfacts: dict) -> str:
 
 def compute_rows(companyfacts: dict, ticker: str, currency: str = 'USD') -> list[dict]:
     facts = companyfacts.get('facts', {})
-    flow_by_name = {key: quarter_flows(fact_entries(facts, tags, 'shares' if key == 'shares' else currency)) for key, tags in FLOW_TAGS.items()}
+    flow_by_name = {key: (quarter_shares if key == 'shares' else quarter_flows)(fact_entries(facts, tags, 'shares' if key == 'shares' else currency)) for key, tags in FLOW_TAGS.items()}
     instant_by_name = {key: quarter_instants(fact_entries(facts, tags, currency)) for key, tags in INSTANT_TAGS.items()}
     keys = set()
     for lookup in [*flow_by_name.values(), *instant_by_name.values()]:
@@ -245,6 +281,8 @@ def compute_rows(companyfacts: dict, ticker: str, currency: str = 'USD') -> list
         if not valid_ends:
             continue
         date = max(valid_ends, key=lambda x: (valid_ends.count(x), x))
+        income_record = flow_by_name.get('netIncome', {}).get((fy, quarter))
+        filing_date = income_record[2] if income_record else None
         # Exclude obsolete or clearly unrelated dates, without making any data up.
         if parse_date(date) and parse_date(date) < dt.date.today()-dt.timedelta(days=365*13):
             continue
@@ -262,7 +300,7 @@ def compute_rows(companyfacts: dict, ticker: str, currency: str = 'USD') -> list
             qvals['investedCapital'] = qvals['equity']+qvals['totalDebt']-qvals['cash']
         qvals['operatingMargin'] = safe_ratio(qvals.get('operatingIncome'), qvals.get('revenue'))
         qvals['fcfMargin'] = safe_ratio(qvals.get('fcf'), qvals.get('revenue'))
-        points.append({'end':date,'label':f'FY{fy} Q{quarter}','fy':fy,'fq':quarter,'q':{k:clean(v) for k,v in qvals.items()},'ttm':{}})
+        points.append({'end':date,'label':f'FY{fy} Q{quarter}','fy':fy,'fq':quarter,'filed':filing_date,'q':{k:clean(v) for k,v in qvals.items()},'ttm':{}})
     # SEC facts may contain multiple fiscal calendars during fiscal year changes.
     points.sort(key=lambda r:(r['end'],r['fy'],r['fq']))
     unique={}
@@ -335,7 +373,7 @@ def main():
         try:
             age=(dt.datetime.now(TZ)-dt.datetime.fromisoformat(date.replace('Z','+00:00'))).total_seconds()/3600 if date else 1e8
         except (ValueError,TypeError):age=1e8
-        if not force and age<max_age:
+        if not force and age<max_age and all('filed' in r for r in old.get('rows', [])):
             skipped+=1;continue
         cik=lookup.get(ticker) or lookup.get(aliases.get(ticker,''))
         if not cik:
