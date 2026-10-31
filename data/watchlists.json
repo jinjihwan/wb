@@ -1,0 +1,603 @@
+{
+  "metadata": {
+    "description": "Investment research site: personal great-business candidates and Berkshire Hathaway largest disclosed U.S.-listed equity holdings.",
+    "prepared_on": "2026-10-31",
+    "currency": "USD",
+    "personal_watchlist_count": 60,
+    "berkshire_top_count": 25,
+    "distinct_companies_across_lists": 81,
+    "overlap_tickers": [
+      "KO",
+      "MCO",
+      "AAPL",
+      "GOOGL"
+    ],
+    "berkshire_as_of": "2026-06-30",
+    "berkshire_filed_on": "2026-08-14",
+    "berkshire_source": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/0001193125-26-352200-index.htm",
+    "berkshire_scope": "SEC 13F U.S.-listed reportable long equity holdings only. Grouped by issuer; share classes combined; ranking by position value at quarter-end. Not a real-time record of ownership.",
+    "note": "Ranks in personal watchlist are user-provided. Financial data, chart series and live stock prices are not included."
+  },
+  "great_companies_60": [
+    {
+      "rank": 1,
+      "ticker": "V",
+      "name": "Visa"
+    },
+    {
+      "rank": 2,
+      "ticker": "MA",
+      "name": "Mastercard"
+    },
+    {
+      "rank": 3,
+      "ticker": "COST",
+      "name": "Costco Wholesale"
+    },
+    {
+      "rank": 4,
+      "ticker": "MSFT",
+      "name": "Microsoft"
+    },
+    {
+      "rank": 5,
+      "ticker": "KO",
+      "name": "The Coca-Cola Company"
+    },
+    {
+      "rank": 6,
+      "ticker": "SPGI",
+      "name": "S&P Global"
+    },
+    {
+      "rank": 7,
+      "ticker": "MRSH",
+      "name": "Marsh"
+    },
+    {
+      "rank": 8,
+      "ticker": "CTAS",
+      "name": "Cintas"
+    },
+    {
+      "rank": 9,
+      "ticker": "UL",
+      "name": "Unilever"
+    },
+    {
+      "rank": 10,
+      "ticker": "ADP",
+      "name": "Automatic Data Processing"
+    },
+    {
+      "rank": 11,
+      "ticker": "MCO",
+      "name": "Moody's"
+    },
+    {
+      "rank": 12,
+      "ticker": "RACE",
+      "name": "Ferrari"
+    },
+    {
+      "rank": 13,
+      "ticker": "GWW",
+      "name": "W.W. Grainger"
+    },
+    {
+      "rank": 14,
+      "ticker": "VRSK",
+      "name": "Verisk Analytics"
+    },
+    {
+      "rank": 15,
+      "ticker": "FDS",
+      "name": "FactSet Research Systems"
+    },
+    {
+      "rank": 16,
+      "ticker": "MSA",
+      "name": "MSA Safety"
+    },
+    {
+      "rank": 17,
+      "ticker": "CPRT",
+      "name": "Copart"
+    },
+    {
+      "rank": 18,
+      "ticker": "ROL",
+      "name": "Rollins"
+    },
+    {
+      "rank": 19,
+      "ticker": "BMI",
+      "name": "Badger Meter"
+    },
+    {
+      "rank": 20,
+      "ticker": "CRVL",
+      "name": "CorVel"
+    },
+    {
+      "rank": 21,
+      "ticker": "AAPL",
+      "name": "Apple"
+    },
+    {
+      "rank": 22,
+      "ticker": "PGR",
+      "name": "Progressive"
+    },
+    {
+      "rank": 23,
+      "ticker": "RELX",
+      "name": "RELX"
+    },
+    {
+      "rank": 24,
+      "ticker": "FAST",
+      "name": "Fastenal"
+    },
+    {
+      "rank": 25,
+      "ticker": "LECO",
+      "name": "Lincoln Electric"
+    },
+    {
+      "rank": 26,
+      "ticker": "IDXX",
+      "name": "IDEXX Laboratories"
+    },
+    {
+      "rank": 27,
+      "ticker": "PAYX",
+      "name": "Paychex"
+    },
+    {
+      "rank": 28,
+      "ticker": "JKHY",
+      "name": "Jack Henry & Associates"
+    },
+    {
+      "rank": 29,
+      "ticker": "IT",
+      "name": "Gartner"
+    },
+    {
+      "rank": 30,
+      "ticker": "TJX",
+      "name": "TJX Companies"
+    },
+    {
+      "rank": 31,
+      "ticker": "ROST",
+      "name": "Ross Stores"
+    },
+    {
+      "rank": 32,
+      "ticker": "CBOE",
+      "name": "Cboe Global Markets"
+    },
+    {
+      "rank": 33,
+      "ticker": "RMD",
+      "name": "ResMed"
+    },
+    {
+      "rank": 34,
+      "ticker": "SNA",
+      "name": "Snap-on"
+    },
+    {
+      "rank": 35,
+      "ticker": "CHKP",
+      "name": "Check Point Software Technologies"
+    },
+    {
+      "rank": 36,
+      "ticker": "RLI",
+      "name": "RLI Corp."
+    },
+    {
+      "rank": 37,
+      "ticker": "PEP",
+      "name": "PepsiCo"
+    },
+    {
+      "rank": 38,
+      "ticker": "ADBE",
+      "name": "Adobe"
+    },
+    {
+      "rank": 39,
+      "ticker": "INTU",
+      "name": "Intuit"
+    },
+    {
+      "rank": 40,
+      "ticker": "PCAR",
+      "name": "PACCAR"
+    },
+    {
+      "rank": 41,
+      "ticker": "CMG",
+      "name": "Chipotle Mexican Grill"
+    },
+    {
+      "rank": 42,
+      "ticker": "TSCO",
+      "name": "Tractor Supply"
+    },
+    {
+      "rank": 43,
+      "ticker": "ALLE",
+      "name": "Allegion"
+    },
+    {
+      "rank": 44,
+      "ticker": "WSO",
+      "name": "Watsco"
+    },
+    {
+      "rank": 45,
+      "ticker": "DCI",
+      "name": "Donaldson Company"
+    },
+    {
+      "rank": 46,
+      "ticker": "AOS",
+      "name": "A. O. Smith"
+    },
+    {
+      "rank": 47,
+      "ticker": "SSD",
+      "name": "Simpson Manufacturing"
+    },
+    {
+      "rank": 48,
+      "ticker": "BRC",
+      "name": "Brady Corporation"
+    },
+    {
+      "rank": 49,
+      "ticker": "DOCS",
+      "name": "Doximity"
+    },
+    {
+      "rank": 50,
+      "ticker": "GOOGL",
+      "name": "Alphabet"
+    },
+    {
+      "rank": 51,
+      "ticker": "MNST",
+      "name": "Monster Beverage"
+    },
+    {
+      "rank": 52,
+      "ticker": "SHW",
+      "name": "Sherwin-Williams"
+    },
+    {
+      "rank": 53,
+      "ticker": "TXRH",
+      "name": "Texas Roadhouse"
+    },
+    {
+      "rank": 54,
+      "ticker": "DECK",
+      "name": "Deckers Outdoor"
+    },
+    {
+      "rank": 55,
+      "ticker": "AIT",
+      "name": "Applied Industrial Technologies"
+    },
+    {
+      "rank": 56,
+      "ticker": "WTS",
+      "name": "Watts Water Technologies"
+    },
+    {
+      "rank": 57,
+      "ticker": "PNR",
+      "name": "Pentair"
+    },
+    {
+      "rank": 58,
+      "ticker": "AYI",
+      "name": "Acuity Inc."
+    },
+    {
+      "rank": 59,
+      "ticker": "AWI",
+      "name": "Armstrong World Industries"
+    },
+    {
+      "rank": 60,
+      "ticker": "AAON",
+      "name": "AAON"
+    }
+  ],
+  "berkshire_top_25": [
+    {
+      "rank": 1,
+      "ticker": "AAPL",
+      "name": "Apple",
+      "share_classes": [
+        "AAPL"
+      ],
+      "value_usd": 65950296923,
+      "weight_pct": 22.0383,
+      "also_in_personal_watchlist": true
+    },
+    {
+      "rank": 2,
+      "ticker": "AXP",
+      "name": "American Express",
+      "share_classes": [
+        "AXP"
+      ],
+      "value_usd": 51282319275,
+      "weight_pct": 17.1367,
+      "also_in_personal_watchlist": false
+    },
+    {
+      "rank": 3,
+      "ticker": "GOOGL",
+      "name": "Alphabet",
+      "share_classes": [
+        "GOOGL",
+        "GOOG"
+      ],
+      "value_usd": 37764088383,
+      "weight_pct": 12.6194,
+      "also_in_personal_watchlist": true
+    },
+    {
+      "rank": 4,
+      "ticker": "KO",
+      "name": "The Coca-Cola Company",
+      "share_classes": [
+        "KO"
+      ],
+      "value_usd": 32508000000,
+      "weight_pct": 10.863,
+      "also_in_personal_watchlist": true
+    },
+    {
+      "rank": 5,
+      "ticker": "BAC",
+      "name": "Bank of America",
+      "share_classes": [
+        "BAC"
+      ],
+      "value_usd": 27543790975,
+      "weight_pct": 9.2042,
+      "also_in_personal_watchlist": false
+    },
+    {
+      "rank": 6,
+      "ticker": "CVX",
+      "name": "Chevron",
+      "share_classes": [
+        "CVX"
+      ],
+      "value_usd": 13986141890,
+      "weight_pct": 4.6737,
+      "also_in_personal_watchlist": false
+    },
+    {
+      "rank": 7,
+      "ticker": "OXY",
+      "name": "Occidental Petroleum",
+      "share_classes": [
+        "OXY"
+      ],
+      "value_usd": 12868205304,
+      "weight_pct": 4.3001,
+      "also_in_personal_watchlist": false
+    },
+    {
+      "rank": 8,
+      "ticker": "CB",
+      "name": "Chubb",
+      "share_classes": [
+        "CB"
+      ],
+      "value_usd": 11670066615,
+      "weight_pct": 3.8997,
+      "also_in_personal_watchlist": false
+    },
+    {
+      "rank": 9,
+      "ticker": "MCO",
+      "name": "Moody's",
+      "share_classes": [
+        "MCO"
+      ],
+      "value_usd": 11173435852,
+      "weight_pct": 3.7338,
+      "also_in_personal_watchlist": true
+    },
+    {
+      "rank": 10,
+      "ticker": "KHC",
+      "name": "Kraft Heinz",
+      "share_classes": [
+        "KHC"
+      ],
+      "value_usd": 7691494401,
+      "weight_pct": 2.5702,
+      "also_in_personal_watchlist": false
+    },
+    {
+      "rank": 11,
+      "ticker": "DVA",
+      "name": "DaVita",
+      "share_classes": [
+        "DVA"
+      ],
+      "value_usd": 6425268898,
+      "weight_pct": 2.1471,
+      "also_in_personal_watchlist": false
+    },
+    {
+      "rank": 12,
+      "ticker": "DAL",
+      "name": "Delta Air Lines",
+      "share_classes": [
+        "DAL"
+      ],
+      "value_usd": 5368591200,
+      "weight_pct": 1.794,
+      "also_in_personal_watchlist": false
+    },
+    {
+      "rank": 13,
+      "ticker": "SIRI",
+      "name": "Sirius XM",
+      "share_classes": [
+        "SIRI"
+      ],
+      "value_usd": 3686802237,
+      "weight_pct": 1.232,
+      "also_in_personal_watchlist": false
+    },
+    {
+      "rank": 14,
+      "ticker": "VRSN",
+      "name": "VeriSign",
+      "share_classes": [
+        "VRSN"
+      ],
+      "value_usd": 2261494212,
+      "weight_pct": 0.7557,
+      "also_in_personal_watchlist": false
+    },
+    {
+      "rank": 15,
+      "ticker": "KR",
+      "name": "Kroger",
+      "share_classes": [
+        "KR"
+      ],
+      "value_usd": 2165670000,
+      "weight_pct": 0.7237,
+      "also_in_personal_watchlist": false
+    },
+    {
+      "rank": 16,
+      "ticker": "LLYVK",
+      "name": "Liberty Live Holdings",
+      "share_classes": [
+        "LLYVK",
+        "LLYVA"
+      ],
+      "value_usd": 1623367688,
+      "weight_pct": 0.5425,
+      "also_in_personal_watchlist": false
+    },
+    {
+      "rank": 17,
+      "ticker": "ALLY",
+      "name": "Ally Financial",
+      "share_classes": [
+        "ALLY"
+      ],
+      "value_usd": 1240650000,
+      "weight_pct": 0.4146,
+      "also_in_personal_watchlist": false
+    },
+    {
+      "rank": 18,
+      "ticker": "LEN",
+      "name": "Lennar",
+      "share_classes": [
+        "LEN",
+        "LEN.B"
+      ],
+      "value_usd": 1212927402,
+      "weight_pct": 0.4053,
+      "also_in_personal_watchlist": false
+    },
+    {
+      "rank": 19,
+      "ticker": "NYT",
+      "name": "The New York Times Company",
+      "share_classes": [
+        "NYT"
+      ],
+      "value_usd": 1098686000,
+      "weight_pct": 0.3671,
+      "also_in_personal_watchlist": false
+    },
+    {
+      "rank": 20,
+      "ticker": "COF",
+      "name": "Capital One Financial",
+      "share_classes": [
+        "COF"
+      ],
+      "value_usd": 601860000,
+      "weight_pct": 0.2011,
+      "also_in_personal_watchlist": false
+    },
+    {
+      "rank": 21,
+      "ticker": "LPX",
+      "name": "Louisiana-Pacific",
+      "share_classes": [
+        "LPX"
+      ],
+      "value_usd": 445592617,
+      "weight_pct": 0.1489,
+      "also_in_personal_watchlist": false
+    },
+    {
+      "rank": 22,
+      "ticker": "NUE",
+      "name": "Nucor",
+      "share_classes": [
+        "NUE"
+      ],
+      "value_usd": 413814258,
+      "weight_pct": 0.1383,
+      "also_in_personal_watchlist": false
+    },
+    {
+      "rank": 23,
+      "ticker": "M",
+      "name": "Macy's",
+      "share_classes": [
+        "M"
+      ],
+      "value_usd": 173031882,
+      "weight_pct": 0.0578,
+      "also_in_personal_watchlist": false
+    },
+    {
+      "rank": 24,
+      "ticker": "NVR",
+      "name": "NVR",
+      "share_classes": [
+        "NVR"
+      ],
+      "value_usd": 75710501,
+      "weight_pct": 0.0253,
+      "also_in_personal_watchlist": false
+    },
+    {
+      "rank": 25,
+      "ticker": "JEF",
+      "name": "Jefferies Financial Group",
+      "share_classes": [
+        "JEF"
+      ],
+      "value_usd": 21669229,
+      "weight_pct": 0.0072,
+      "also_in_personal_watchlist": false
+    }
+  ]
+}
