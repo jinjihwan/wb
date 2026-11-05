@@ -1,82 +1,82 @@
 ﻿Ticker,기업,보고통화,분기수,재무기준일,재무경과일,완전한 핵심지표 분기수,최근 TTM 누락,주가일,주가 이력일수,현재 PER,10년 평균 PER,극단 PER 제외,진단
-V,Visa,USD,40,2026-03-31,219,40,,2026-11-04,251,X,X,0,최근 재무 기준일 지연; 희석주식수·EPS 모두 없음
-MA,Mastercard,USD,40,2026-09-30,36,40,,2026-11-04,251,O,O,0,
-COST,Costco Wholesale,USD,40,2026-08-30,67,28,roic,2026-11-04,251,O,O,0,최신 TTM 일부 미산출
-MSFT,Microsoft,USD,40,2026-09-30,36,36,,2026-11-04,251,O,O,0,
-KO,The Coca-Cola Company,USD,40,2026-10-02,34,33,,2026-11-04,251,O,O,2,과거 PER 극단치 검증 필요
-SPGI,S&P Global,USD,40,2026-09-30,36,37,"cfo,fcf",2026-11-04,251,X,O,0,최신 TTM 일부 미산출
-MRSH,Marsh,USD,40,2026-09-30,36,40,,2026-11-04,251,O,O,0,
-CTAS,Cintas,USD,40,2026-08-31,66,38,,2026-11-04,251,O,O,0,
-UL,Unilever,EUR,16,2025-12-31,309,0,"netIncome,cfo,capex,fcf,roe,roic",2026-11-04,251,X,X,0,"최근 재무 기준일 지연; 최신 TTM 일부 미산출; 희석주식수·EPS 모두 없음; 보고통화 USD 아님, PER 제외"
-ADP,Automatic Data Processing,USD,40,2026-09-30,36,0,"capex,fcf,roic",2026-11-04,251,O,O,0,최신 TTM 일부 미산출
-MCO,Moody's,USD,40,2026-09-30,36,40,,2026-11-04,251,O,O,0,
-RACE,Ferrari,EUR,9,2025-12-31,309,0,"netIncome,cfo,capex,fcf,roe,roic",2026-11-04,251,X,X,0,"최근 재무 기준일 지연; 최신 TTM 일부 미산출; 희석주식수·EPS 모두 없음; 보고통화 USD 아님, PER 제외"
-GWW,W.W. Grainger,USD,40,2026-06-30,128,40,,2026-11-04,251,O,O,0,
-VRSK,Verisk Analytics,USD,40,2026-03-31,219,40,roe,2026-11-04,251,O,O,0,최근 재무 기준일 지연; 최신 TTM 일부 미산출
-FDS,FactSet Research Systems,USD,40,2026-08-31,66,36,,2026-11-04,251,O,O,0,
-MSA,MSA Safety,USD,40,2026-06-30,128,39,,2026-11-04,251,O,O,4,과거 PER 극단치 검증 필요
-CPRT,Copart,USD,40,2026-07-31,97,28,roic,2026-11-04,251,O,O,0,최신 TTM 일부 미산출
-ROL,Rollins,USD,40,2026-09-30,36,19,,2026-11-04,251,O,O,0,
-BMI,Badger Meter,USD,40,2026-09-30,36,40,roic,2026-11-04,251,O,O,0,최신 TTM 일부 미산출
-CRVL,CorVel,USD,40,2026-06-30,128,0,"netIncome,cfo,capex,fcf,roe,roic",2026-11-04,251,X,O,0,최신 TTM 일부 미산출
-AAPL,Apple,USD,40,2026-09-26,40,38,,2026-11-04,251,O,O,0,
-PGR,Progressive,USD,40,2026-09-30,36,0,,2026-11-04,251,O,O,4,과거 PER 극단치 검증 필요
-RELX,RELX,GBP,9,2025-12-31,309,0,"netIncome,cfo,capex,fcf,roe,roic",2026-11-04,251,X,X,0,"최근 재무 기준일 지연; 최신 TTM 일부 미산출; 희석주식수·EPS 모두 없음; 보고통화 USD 아님, PER 제외"
-FAST,Fastenal,USD,40,2026-09-30,36,40,,2026-11-04,251,O,O,0,
-LECO,Lincoln Electric,USD,40,2026-09-30,36,28,,2026-11-04,251,O,O,0,
-IDXX,IDEXX Laboratories,USD,40,2026-09-30,36,35,,2026-11-04,251,O,O,0,
-PAYX,Paychex,USD,40,2026-08-31,66,9,,2026-11-04,251,O,X,0,
-JKHY,Jack Henry & Associates,USD,40,2026-06-30,128,40,,2026-11-04,251,O,O,0,
-IT,Gartner,USD,40,2026-09-30,36,0,"capex,fcf",2026-11-04,251,O,O,3,최신 TTM 일부 미산출; 과거 PER 극단치 검증 필요
-TJX,TJX Companies,USD,40,2026-08-01,96,0,roic,2026-11-04,251,O,O,0,최신 TTM 일부 미산출
-ROST,Ross Stores,USD,40,2026-08-01,96,6,,2026-11-04,251,O,O,2,과거 PER 극단치 검증 필요
-CBOE,Cboe Global Markets,USD,40,2026-09-30,36,39,,2026-11-04,251,O,O,0,
-RMD,ResMed,USD,40,2026-09-30,36,35,,2026-11-04,251,O,O,0,
-SNA,Snap-on,USD,40,2026-10-03,33,0,"capex,fcf",2026-11-04,251,O,O,0,최신 TTM 일부 미산출
-CHKP,Check Point Software Technologies,USD,14,2025-12-31,309,1,"netIncome,cfo,capex,fcf,roe,roic",2026-11-04,251,X,X,0,최근 재무 기준일 지연; 최신 TTM 일부 미산출
-RLI,RLI Corp.,USD,40,2026-09-30,36,0,,2026-11-04,251,O,O,0,
-PEP,PepsiCo,USD,40,2026-09-05,61,40,,2026-11-04,251,O,O,0,
-ADBE,Adobe,USD,40,2026-08-28,69,40,,2026-11-04,251,O,O,0,
-INTU,Intuit,USD,40,2026-07-31,97,40,,2026-11-04,251,O,O,0,
-PCAR,PACCAR,USD,40,2026-09-30,36,0,roic,2026-11-04,251,O,O,0,최신 TTM 일부 미산출
-CMG,Chipotle Mexican Grill,USD,40,2026-09-30,36,33,roic,2026-11-04,251,O,O,1,최신 TTM 일부 미산출; 과거 PER 극단치 검증 필요
-TSCO,Tractor Supply,USD,40,2026-06-27,131,40,,2026-11-04,251,O,O,0,
-ALLE,Allegion,USD,40,2026-09-30,36,40,,2026-11-04,251,O,O,0,
-WSO,Watsco,USD,40,2026-06-30,128,32,,2026-11-04,251,O,O,0,
-DCI,Donaldson Company,USD,40,2026-07-31,97,39,,2026-11-04,251,O,O,0,
-AOS,A. O. Smith,USD,40,2026-09-30,36,34,,2026-11-04,251,O,O,0,
-SSD,Simpson Manufacturing,USD,40,2026-06-30,128,25,,2026-11-04,251,O,O,0,
-BRC,Brady Corporation,USD,40,2026-07-31,97,39,,2026-11-04,251,O,O,0,
-DOCS,Doximity,USD,21,2026-06-30,128,17,"capex,fcf,roic",2026-11-04,251,O,O,0,최신 TTM 일부 미산출
-GOOGL,Alphabet,USD,40,2026-09-30,36,40,,2026-11-04,251,O,O,0,
-MNST,Monster Beverage,USD,40,2026-06-30,128,34,roic,2026-11-04,251,O,O,0,최신 TTM 일부 미산출
-SHW,Sherwin-Williams,USD,40,2026-09-30,36,32,roic,2026-11-04,251,O,O,0,최신 TTM 일부 미산출
-TXRH,Texas Roadhouse,USD,40,2026-06-30,128,36,roic,2026-11-04,251,O,O,3,최신 TTM 일부 미산출; 과거 PER 극단치 검증 필요
-DECK,Deckers Outdoor,USD,40,2026-09-30,36,39,roic,2026-11-04,251,O,O,3,최신 TTM 일부 미산출; 과거 PER 극단치 검증 필요
-AIT,Applied Industrial Technologies,USD,40,2026-09-30,36,40,,2026-11-04,251,O,O,4,과거 PER 극단치 검증 필요
-WTS,Watts Water Technologies,USD,40,2026-06-28,130,30,,2026-11-04,251,O,O,0,
-PNR,Pentair,USD,40,2026-09-30,36,38,"cfo,fcf",2026-11-04,251,O,O,0,최신 TTM 일부 미산출
-AYI,Acuity Inc.,USD,40,2026-08-31,66,40,,2026-11-04,251,O,O,0,
-AWI,Armstrong World Industries,USD,40,2026-09-30,36,40,,2026-11-04,251,O,O,0,
-AAON,AAON,USD,40,2026-06-30,128,25,"capex,fcf,roic",2026-11-04,251,O,O,0,최신 TTM 일부 미산출
-AXP,American Express,USD,40,2026-09-30,36,0,,2026-11-04,251,O,O,0,
-BAC,Bank of America,USD,40,2026-09-30,36,0,"capex,fcf",2026-11-04,251,O,O,0,최신 TTM 일부 미산출
-CVX,Chevron,USD,40,2026-06-30,128,0,roic,2026-11-04,251,O,O,3,최신 TTM 일부 미산출; 과거 PER 극단치 검증 필요
-OXY,Occidental Petroleum,USD,40,2026-06-30,128,0,roic,2026-11-04,251,O,O,3,최신 TTM 일부 미산출; 과거 PER 극단치 검증 필요
-CB,Chubb,USD,40,2026-09-30,36,0,"capex,fcf",2026-11-04,251,O,O,0,최신 TTM 일부 미산출
-KHC,Kraft Heinz,USD,40,2026-06-27,131,39,roic,2026-11-04,251,X,O,2,최신 TTM 일부 미산출; 과거 PER 극단치 검증 필요
-DVA,DaVita,USD,40,2026-09-30,36,34,roe,2026-11-04,251,O,O,3,최신 TTM 일부 미산출; 과거 PER 극단치 검증 필요
-DAL,Delta Air Lines,USD,40,2026-09-30,36,38,"capex,fcf",2026-11-04,251,O,O,4,최신 TTM 일부 미산출; 과거 PER 극단치 검증 필요
-SIRI,Sirius XM,USD,40,2026-09-30,36,35,,2026-11-04,251,O,O,4,과거 PER 극단치 검증 필요
-VRSN,VeriSign,USD,40,2026-09-30,36,39,"roe,roic",2026-11-04,251,O,O,0,최신 TTM 일부 미산출
-KR,Kroger,USD,40,2026-08-15,82,34,"netIncome,cfo,capex,fcf,roe,roic",2026-11-04,251,X,O,0,최신 TTM 일부 미산출
-LLYVK,Liberty Live Holdings,USD,4,2026-06-30,128,0,"cfo,capex,fcf,roe,roic",2026-11-04,251,X,X,0,최신 TTM 일부 미산출
-ALLY,Ally Financial,USD,40,2026-09-30,36,0,"capex,fcf",2026-11-04,251,O,O,3,최신 TTM 일부 미산출; 과거 PER 극단치 검증 필요
-LEN,Lennar,USD,40,2026-08-31,66,21,roic,2026-11-04,251,O,O,0,최신 TTM 일부 미산출
-NYT,The New York Times Company,USD,40,2026-06-30,128,40,roic,2026-11-04,251,O,O,4,최신 TTM 일부 미산출; 과거 PER 극단치 검증 필요
-COF,Capital One Financial,USD,40,2026-06-30,128,0,,2026-11-04,251,O,O,5,과거 PER 극단치 검증 필요
-LPX,Louisiana-Pacific,USD,40,2026-06-30,128,39,,2026-11-04,251,O,O,3,과거 PER 극단치 검증 필요
-NUE,Nucor,USD,40,2026-07-04,124,0,roic,2026-11-04,251,O,O,0,최신 TTM 일부 미산출
-M,Macy's,USD,40,2026-08-01,96,40,,2026-11-04,251,O,O,4,과거 PER 극단치 검증 필요
-NVR,NVR,USD,40,2026-06-30,128,0,roic,2026-11-04,251,O,O,0,최신 TTM 일부 미산출
-JEF,Jefferies Financial Group,USD,40,2026-08-31,66,0,"cfo,fcf",2026-11-04,251,X,O,3,최신 TTM 일부 미산출; 과거 PER 극단치 검증 필요
+V,Visa,USD,40,2026-03-31,219,40,,2026-11-05,251,X,X,0,최근 재무 기준일 지연; 희석주식수·EPS 모두 없음
+MA,Mastercard,USD,40,2026-09-30,36,40,,2026-11-05,251,O,O,0,
+COST,Costco Wholesale,USD,40,2026-08-30,67,28,roic,2026-11-05,251,O,O,0,최신 TTM 일부 미산출
+MSFT,Microsoft,USD,40,2026-09-30,36,36,,2026-11-05,251,O,O,0,
+KO,The Coca-Cola Company,USD,40,2026-10-02,34,33,,2026-11-05,251,O,O,2,과거 PER 극단치 검증 필요
+SPGI,S&P Global,USD,40,2026-09-30,36,37,"cfo,fcf",2026-11-05,251,X,O,0,최신 TTM 일부 미산출
+MRSH,Marsh,USD,40,2026-09-30,36,40,,2026-11-05,251,O,O,0,
+CTAS,Cintas,USD,40,2026-08-31,66,38,,2026-11-05,251,O,O,0,
+UL,Unilever,EUR,16,2025-12-31,309,0,"netIncome,cfo,capex,fcf,roe,roic",2026-11-05,251,X,X,0,"최근 재무 기준일 지연; 최신 TTM 일부 미산출; 희석주식수·EPS 모두 없음; 보고통화 USD 아님, PER 제외"
+ADP,Automatic Data Processing,USD,40,2026-09-30,36,0,"capex,fcf,roic",2026-11-05,251,O,O,0,최신 TTM 일부 미산출
+MCO,Moody's,USD,40,2026-09-30,36,40,,2026-11-05,251,O,O,0,
+RACE,Ferrari,EUR,9,2025-12-31,309,0,"netIncome,cfo,capex,fcf,roe,roic",2026-11-05,251,X,X,0,"최근 재무 기준일 지연; 최신 TTM 일부 미산출; 희석주식수·EPS 모두 없음; 보고통화 USD 아님, PER 제외"
+GWW,W.W. Grainger,USD,40,2026-06-30,128,40,,2026-11-05,251,O,O,0,
+VRSK,Verisk Analytics,USD,40,2026-03-31,219,40,roe,2026-11-05,251,O,O,0,최근 재무 기준일 지연; 최신 TTM 일부 미산출
+FDS,FactSet Research Systems,USD,40,2026-08-31,66,36,,2026-11-05,251,O,O,0,
+MSA,MSA Safety,USD,40,2026-06-30,128,39,,2026-11-05,251,O,O,4,과거 PER 극단치 검증 필요
+CPRT,Copart,USD,40,2026-07-31,97,28,roic,2026-11-05,251,O,O,0,최신 TTM 일부 미산출
+ROL,Rollins,USD,40,2026-09-30,36,19,,2026-11-05,251,O,O,0,
+BMI,Badger Meter,USD,40,2026-09-30,36,40,roic,2026-11-05,251,O,O,0,최신 TTM 일부 미산출
+CRVL,CorVel,USD,40,2026-06-30,128,0,"netIncome,cfo,capex,fcf,roe,roic",2026-11-05,251,X,O,0,최신 TTM 일부 미산출
+AAPL,Apple,USD,40,2026-09-26,40,38,,2026-11-05,251,O,O,0,
+PGR,Progressive,USD,40,2026-09-30,36,0,,2026-11-05,251,O,O,4,과거 PER 극단치 검증 필요
+RELX,RELX,GBP,9,2025-12-31,309,0,"netIncome,cfo,capex,fcf,roe,roic",2026-11-05,251,X,X,0,"최근 재무 기준일 지연; 최신 TTM 일부 미산출; 희석주식수·EPS 모두 없음; 보고통화 USD 아님, PER 제외"
+FAST,Fastenal,USD,40,2026-09-30,36,40,,2026-11-05,251,O,O,0,
+LECO,Lincoln Electric,USD,40,2026-09-30,36,28,,2026-11-05,251,O,O,0,
+IDXX,IDEXX Laboratories,USD,40,2026-09-30,36,35,,2026-11-05,251,O,O,0,
+PAYX,Paychex,USD,40,2026-08-31,66,9,,2026-11-05,251,O,X,0,
+JKHY,Jack Henry & Associates,USD,40,2026-06-30,128,40,,2026-11-05,251,O,O,0,
+IT,Gartner,USD,40,2026-09-30,36,0,"capex,fcf",2026-11-05,251,O,O,3,최신 TTM 일부 미산출; 과거 PER 극단치 검증 필요
+TJX,TJX Companies,USD,40,2026-08-01,96,0,roic,2026-11-05,251,O,O,0,최신 TTM 일부 미산출
+ROST,Ross Stores,USD,40,2026-08-01,96,6,,2026-11-05,251,O,O,2,과거 PER 극단치 검증 필요
+CBOE,Cboe Global Markets,USD,40,2026-09-30,36,39,,2026-11-05,251,O,O,0,
+RMD,ResMed,USD,40,2026-09-30,36,35,,2026-11-05,251,O,O,0,
+SNA,Snap-on,USD,40,2026-10-03,33,0,"capex,fcf",2026-11-05,251,O,O,0,최신 TTM 일부 미산출
+CHKP,Check Point Software Technologies,USD,14,2025-12-31,309,1,"netIncome,cfo,capex,fcf,roe,roic",2026-11-05,251,X,X,0,최근 재무 기준일 지연; 최신 TTM 일부 미산출
+RLI,RLI Corp.,USD,40,2026-09-30,36,0,,2026-11-05,251,O,O,0,
+PEP,PepsiCo,USD,40,2026-09-05,61,40,,2026-11-05,251,O,O,0,
+ADBE,Adobe,USD,40,2026-08-28,69,40,,2026-11-05,251,O,O,0,
+INTU,Intuit,USD,40,2026-07-31,97,40,,2026-11-05,251,O,O,0,
+PCAR,PACCAR,USD,40,2026-09-30,36,0,roic,2026-11-05,251,O,O,0,최신 TTM 일부 미산출
+CMG,Chipotle Mexican Grill,USD,40,2026-09-30,36,33,roic,2026-11-05,251,O,O,1,최신 TTM 일부 미산출; 과거 PER 극단치 검증 필요
+TSCO,Tractor Supply,USD,40,2026-06-27,131,40,,2026-11-05,251,O,O,0,
+ALLE,Allegion,USD,40,2026-09-30,36,40,,2026-11-05,251,O,O,0,
+WSO,Watsco,USD,40,2026-06-30,128,32,,2026-11-05,251,O,O,0,
+DCI,Donaldson Company,USD,40,2026-07-31,97,39,,2026-11-05,251,O,O,0,
+AOS,A. O. Smith,USD,40,2026-09-30,36,34,,2026-11-05,251,O,O,0,
+SSD,Simpson Manufacturing,USD,40,2026-06-30,128,25,,2026-11-05,251,O,O,0,
+BRC,Brady Corporation,USD,40,2026-07-31,97,39,,2026-11-05,251,O,O,0,
+DOCS,Doximity,USD,21,2026-06-30,128,17,"capex,fcf,roic",2026-11-05,251,O,O,0,최신 TTM 일부 미산출
+GOOGL,Alphabet,USD,40,2026-09-30,36,40,,2026-11-05,251,O,O,0,
+MNST,Monster Beverage,USD,40,2026-06-30,128,34,roic,2026-11-05,251,O,O,0,최신 TTM 일부 미산출
+SHW,Sherwin-Williams,USD,40,2026-09-30,36,32,roic,2026-11-05,251,O,O,0,최신 TTM 일부 미산출
+TXRH,Texas Roadhouse,USD,40,2026-06-30,128,36,roic,2026-11-05,251,O,O,3,최신 TTM 일부 미산출; 과거 PER 극단치 검증 필요
+DECK,Deckers Outdoor,USD,40,2026-09-30,36,39,roic,2026-11-05,251,O,O,3,최신 TTM 일부 미산출; 과거 PER 극단치 검증 필요
+AIT,Applied Industrial Technologies,USD,40,2026-09-30,36,40,,2026-11-05,251,O,O,4,과거 PER 극단치 검증 필요
+WTS,Watts Water Technologies,USD,40,2026-06-28,130,30,,2026-11-05,251,O,O,0,
+PNR,Pentair,USD,40,2026-09-30,36,38,"cfo,fcf",2026-11-05,251,O,O,0,최신 TTM 일부 미산출
+AYI,Acuity Inc.,USD,40,2026-08-31,66,40,,2026-11-05,251,O,O,0,
+AWI,Armstrong World Industries,USD,40,2026-09-30,36,40,,2026-11-05,251,O,O,0,
+AAON,AAON,USD,40,2026-06-30,128,25,"capex,fcf,roic",2026-11-05,251,O,O,0,최신 TTM 일부 미산출
+AXP,American Express,USD,40,2026-09-30,36,0,,2026-11-05,251,O,O,0,
+BAC,Bank of America,USD,40,2026-09-30,36,0,"capex,fcf",2026-11-05,251,O,O,0,최신 TTM 일부 미산출
+CVX,Chevron,USD,40,2026-06-30,128,0,roic,2026-11-05,251,O,O,3,최신 TTM 일부 미산출; 과거 PER 극단치 검증 필요
+OXY,Occidental Petroleum,USD,40,2026-06-30,128,0,roic,2026-11-05,251,O,O,3,최신 TTM 일부 미산출; 과거 PER 극단치 검증 필요
+CB,Chubb,USD,40,2026-09-30,36,0,"capex,fcf",2026-11-05,251,O,O,0,최신 TTM 일부 미산출
+KHC,Kraft Heinz,USD,40,2026-06-27,131,39,roic,2026-11-05,251,X,O,2,최신 TTM 일부 미산출; 과거 PER 극단치 검증 필요
+DVA,DaVita,USD,40,2026-09-30,36,34,roe,2026-11-05,251,O,O,3,최신 TTM 일부 미산출; 과거 PER 극단치 검증 필요
+DAL,Delta Air Lines,USD,40,2026-09-30,36,38,"capex,fcf",2026-11-05,251,O,O,4,최신 TTM 일부 미산출; 과거 PER 극단치 검증 필요
+SIRI,Sirius XM,USD,40,2026-09-30,36,35,,2026-11-05,251,O,O,4,과거 PER 극단치 검증 필요
+VRSN,VeriSign,USD,40,2026-09-30,36,39,"roe,roic",2026-11-05,251,O,O,0,최신 TTM 일부 미산출
+KR,Kroger,USD,40,2026-08-15,82,34,"netIncome,cfo,capex,fcf,roe,roic",2026-11-05,251,X,O,0,최신 TTM 일부 미산출
+LLYVK,Liberty Live Holdings,USD,4,2026-06-30,128,0,"cfo,capex,fcf,roe,roic",2026-11-05,251,X,X,0,최신 TTM 일부 미산출
+ALLY,Ally Financial,USD,40,2026-09-30,36,0,"capex,fcf",2026-11-05,251,O,O,3,최신 TTM 일부 미산출; 과거 PER 극단치 검증 필요
+LEN,Lennar,USD,40,2026-08-31,66,21,roic,2026-11-05,251,O,O,0,최신 TTM 일부 미산출
+NYT,The New York Times Company,USD,40,2026-06-30,128,40,roic,2026-11-05,251,O,O,4,최신 TTM 일부 미산출; 과거 PER 극단치 검증 필요
+COF,Capital One Financial,USD,40,2026-06-30,128,0,,2026-11-05,251,O,O,5,과거 PER 극단치 검증 필요
+LPX,Louisiana-Pacific,USD,40,2026-06-30,128,39,,2026-11-05,251,O,O,3,과거 PER 극단치 검증 필요
+NUE,Nucor,USD,40,2026-07-04,124,0,roic,2026-11-05,251,O,O,0,최신 TTM 일부 미산출
+M,Macy's,USD,40,2026-08-01,96,40,,2026-11-05,251,O,O,4,과거 PER 극단치 검증 필요
+NVR,NVR,USD,40,2026-06-30,128,0,roic,2026-11-05,251,O,O,0,최신 TTM 일부 미산출
+JEF,Jefferies Financial Group,USD,40,2026-08-31,66,0,"cfo,fcf",2026-11-05,251,X,O,3,최신 TTM 일부 미산출; 과거 PER 극단치 검증 필요
