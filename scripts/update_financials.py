@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Collect SEC Company Facts for the 60+25 watchlists into static GitHub Pages JSON.
+"""Collect SEC Company Facts for the 60+80+25 watchlists into static GitHub Pages JSON.
 
 SEC facts are public and unauthenticated, but requests MUST identify a real contact
 in SEC_USER_AGENT. The site is still deployable if SEC access is unavailable.
@@ -44,7 +44,7 @@ INSTANT_TAGS = {
     'shortDebt': ['ShortTermBorrowings', 'ShortTermDebt', 'ShortTermLoansPayable'],
 }
 FINANCIAL_SCHEMA_VERSION = 2
-FINANCIAL_TICKERS = {'AXP', 'BAC', 'PGR', 'CB', 'RLI', 'ALLY', 'COF', 'JEF', 'CBOE'}
+FINANCIAL_TICKERS = {'ACIC', 'AII', 'ALLY', 'AMAL', 'AMSF', 'ASIC', 'AXP', 'BAC', 'BSVN', 'CARE', 'CASH', 'CB', 'CBNA', 'CBOE', 'COF', 'GCBC', 'HBNC', 'HRTG', 'JEF', 'LKFN', 'NRIM', 'OBT', 'PBAM', 'PFBC', 'PGR', 'PLBC', 'RCBC', 'RLI', 'ROOT', 'UVE'}
 
 
 def nowiso() -> str:
@@ -367,7 +367,7 @@ def main():
     max_age=int(os.getenv('FINANCIAL_MAX_AGE_HOURS','72'))
     force=os.getenv('FORCE_FINANCIALS','false').lower() in ('true','1','yes')
     watches=load_json(DATA/'watchlists.json')
-    by_ticker={x['ticker']:x for part in ('great_companies_60','berkshire_top_25') for x in watches[part]}
+    by_ticker={x['ticker']:x for part in ('great_companies_60', 'additional_watchlist_80', 'berkshire_top_25') for x in watches[part]}
     s=get_session(user_agent)
     try:
         raw=request_json(s,'https://www.sec.gov/files/company_tickers.json')

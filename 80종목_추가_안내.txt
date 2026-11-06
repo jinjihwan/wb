@@ -1,0 +1,19 @@
+새로운 관심 기업 80개 추가 패치 (2026-11-07)
+
+1. 기존 관심기업 60, 버크셔 상위 25는 그대로 유지합니다.
+2. 새로운 추가 관심기업 80개를 별도 탭으로 만듭니다. 전체 161개(중복 0개 추가).
+3. 주가/SEC 재무/수집진단 스크립트를 161개 대상에 맞게 수정합니다.
+4. 기존 재무 및 주가 데이터는 이 ZIP에 포함되지 않습니다. 삭제하거나 교체하지 마세요.
+5. 첫 실행 시 신규 80개는 주가·재무·PER이 공란일 수 있습니다. GitHub Actions 성공 후 수집됩니다.
+6. 신규 상장 종목, 외국 법인, 10년보다 짧은 상장 이력 종목은 수집/평균 PER이 제한될 수 있습니다.
+
+Codespaces 터미널에서 ZIP 파일을 저장소 루트에 올린 후:
+  unzip -oq wb-add-80-tickers-20261107.zip
+  rm wb-add-80-tickers-20261107.zip
+  git add data/watchlists.json index.html assets/style.css js/app.js scripts/update_financials.py scripts/update_prices.py scripts/audit_collection.py .github/workflows/publish.yml
+  git commit -m "Add 80 stocks to watchlist"
+  git push
+
+해당 ZIP에는 데이터/financials.json, data/prices.json, data/valuation.json 등의 기존 라이브 데이터가 없습니다.
+GitHub Actions의 정상 완료를 기다린 후 https://jinjihwan.github.io/wb/ 에서 왼쪽 '추가 관심 기업' 탭을 선택하세요.
+원하는 티커가 없으면 GitHub Actions 로그의 Not updated / CIK not found 메시지와 collection_status.csv를 확인하세요.

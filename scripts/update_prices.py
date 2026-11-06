@@ -76,6 +76,44 @@ def history_yahoo(session,ticker):
     return history[-270:] if len(history)>=20 else []
 
 
+def reusable_history(previous, quote):
+    """Reuse one-year candles between full refreshes; append the new closing price.
+
+    Chart data are refreshed from the provider at most weekly in normal operation.
+    A gap, stale cache or suspected split forces a full refresh. The previous
+    history is never replaced by guessed intermediate daily prices.
+    """
+    if not isinstance(previous, dict):
+        return None
+    history = previous.get('history') or []
+    if len(history) < 20:
+        return None
+    try:
+        quote_date = dt.date.fromisoformat(quote['date'])
+        prev_date = dt.date.fromisoformat(history[-1]['date'])
+        prev_close = float(history[-1]['close'])
+        quote_close = float(quote['close'])
+        if quote_date < prev_date or (quote_date - prev_date).days > 5:
+            return None
+        if prev_close <= 0 or quote_close <= 0 or not (0.65 < quote_close / prev_close < 1.55):
+            return None
+        refreshed_at = previous.get('history_updated_at')
+        if refreshed_at:
+            refresh_date = dt.date.fromisoformat(str(refreshed_at)[:10])
+            if (quote_date - refresh_date).days >= 7:
+                return None
+    except (KeyError, ValueError, TypeError, ZeroDivisionError):
+        return None
+    result = [dict(x) for x in history]
+    if quote_date == prev_date:
+        result[-1] = {'date':quote['date'], 'close':quote['close']}
+    else:
+        result.append({'date':quote['date'], 'close':quote['close']})
+    # Keep a full calendar year of daily closes rather than indefinite buildup.
+    cutoff = quote_date - dt.timedelta(days=375)
+    return [r for r in result if dt.date.fromisoformat(r['date']) >= cutoff][-270:]
+
+
 def notify_telegram(token,chat_id,message):
     r=requests.post(f'https://api.telegram.org/bot{token}/sendMessage',data={'chat_id':chat_id,'text':message},timeout=15)
     r.raise_for_status()
@@ -110,7 +148,7 @@ def alerts(prices):
 
 def main():
     watches=load(DATA/'watchlists.json')
-    tickers=list(dict.fromkeys(x['ticker'] for part in ('great_companies_60','berkshire_top_25') for x in watches[part]))
+    tickers=list(dict.fromkeys(x['ticker'] for part in ('great_companies_60', 'additional_watchlist_80', 'berkshire_top_25') for x in watches[part]))
     path=DATA/'prices.json';out=load(path,{'companies':{}});out.setdefault('companies',{})
     session=requests.Session();session.headers.update({'User-Agent':'Mozilla/5.0 (compatible; InvestmentResearchDashboard/1.0)','Accept':'text/csv, application/json'})
     ok=0;errors=[];just_fetched={}
@@ -121,16 +159,28 @@ def main():
             except (requests.RequestException,ValueError,KeyError,IndexError,TypeError):result=None
             if result:break
         if result:
-            for history_provider in (history_stooq,history_yahoo):
-                try:hist=history_provider(session,ticker)
-                except (requests.RequestException,ValueError,KeyError,IndexError,TypeError):hist=[]
-                if hist:
-                    result['history']=hist
-                    result['history_source']='Stooq' if history_provider==history_stooq else 'Yahoo Finance (delayed)'
-                    break
-            if 'history' not in result and ticker in out['companies']:
-                result['history']=out['companies'][ticker].get('history',[])
-                result['history_source']=out['companies'][ticker].get('history_source','')
+            previous=out['companies'].get(ticker,{})
+            if previous.get('date') and previous['date'] > result['date']:
+                errors.append(f'{ticker} (시세 제공처 날짜 지연)')
+                continue
+            cached_history=reusable_history(previous,result)
+            if cached_history:
+                result['history']=cached_history
+                result['history_source']=previous.get('history_source','')
+                result['history_updated_at']=previous.get('history_updated_at') or date_now()
+            else:
+                for history_provider in (history_stooq,history_yahoo):
+                    try:hist=history_provider(session,ticker)
+                    except (requests.RequestException,ValueError,KeyError,IndexError,TypeError):hist=[]
+                    if hist:
+                        result['history']=hist
+                        result['history_source']='Stooq' if history_provider==history_stooq else 'Yahoo Finance (delayed)'
+                        result['history_updated_at']=date_now()
+                        break
+            if 'history' not in result and previous:
+                result['history']=previous.get('history',[])
+                result['history_source']=previous.get('history_source','')
+                result['history_updated_at']=previous.get('history_updated_at')
             out['companies'][ticker]=result;just_fetched[ticker]=result;ok+=1
         else:errors.append(ticker)
         time.sleep(.12)

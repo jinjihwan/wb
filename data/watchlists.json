@@ -1,11 +1,11 @@
 {
   "metadata": {
-    "description": "Investment research site: personal great-business candidates and Berkshire Hathaway largest disclosed U.S.-listed equity holdings.",
-    "prepared_on": "2026-10-31",
+    "description": "Investment research site: 60 ranked personal candidates, 80 additional user-requested watchlist stocks, and the 25 largest disclosed Berkshire U.S.-listed holdings.",
+    "prepared_on": "2026-11-07",
     "currency": "USD",
     "personal_watchlist_count": 60,
     "berkshire_top_count": 25,
-    "distinct_companies_across_lists": 81,
+    "distinct_companies_across_lists": 161,
     "overlap_tickers": [
       "KO",
       "MCO",
@@ -16,7 +16,8 @@
     "berkshire_filed_on": "2026-08-14",
     "berkshire_source": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/0001193125-26-352200-index.htm",
     "berkshire_scope": "SEC 13F U.S.-listed reportable long equity holdings only. Grouped by issuer; share classes combined; ranking by position value at quarter-end. Not a real-time record of ownership.",
-    "note": "Ranks in personal watchlist are user-provided. Financial data, chart series and live stock prices are not included."
+    "note": "Original ranked 60 and Berkshire 13F holdings remain unchanged. Additional 80 tickers are unranked investment candidates shown in the request order (1-80). Financials and quotes are collected separately; historical and current data may be unavailable for newer IPOs and some non-US issuers.",
+    "additional_watchlist_count": 80
   },
   "great_companies_60": [
     {
@@ -598,6 +599,408 @@
       "value_usd": 21669229,
       "weight_pct": 0.0072,
       "also_in_personal_watchlist": false
+    }
+  ],
+  "additional_watchlist_80": [
+    {
+      "rank": 1,
+      "ticker": "LPG",
+      "name": "Dorian LPG"
+    },
+    {
+      "rank": 2,
+      "ticker": "MCRI",
+      "name": "Monarch Casino & Resort"
+    },
+    {
+      "rank": 3,
+      "ticker": "MQ",
+      "name": "Marqeta"
+    },
+    {
+      "rank": 4,
+      "ticker": "LMAT",
+      "name": "LeMaitre Vascular"
+    },
+    {
+      "rank": 5,
+      "ticker": "HRMY",
+      "name": "Harmony Biosciences"
+    },
+    {
+      "rank": 6,
+      "ticker": "BLBD",
+      "name": "Blue Bird"
+    },
+    {
+      "rank": 7,
+      "ticker": "GIC",
+      "name": "Global Industrial Company"
+    },
+    {
+      "rank": 8,
+      "ticker": "HCSG",
+      "name": "Healthcare Services Group"
+    },
+    {
+      "rank": 9,
+      "ticker": "PRDO",
+      "name": "Perdoceo Education"
+    },
+    {
+      "rank": 10,
+      "ticker": "DFIN",
+      "name": "Donnelley Financial Solutions"
+    },
+    {
+      "rank": 11,
+      "ticker": "ARLO",
+      "name": "Arlo Technologies"
+    },
+    {
+      "rank": 12,
+      "ticker": "CASH",
+      "name": "Pathward Financial"
+    },
+    {
+      "rank": 13,
+      "ticker": "NRP",
+      "name": "Natural Resource Partners"
+    },
+    {
+      "rank": 14,
+      "ticker": "XZO",
+      "name": "Exzeo Group"
+    },
+    {
+      "rank": 15,
+      "ticker": "LKFN",
+      "name": "Lakeland Financial"
+    },
+    {
+      "rank": 16,
+      "ticker": "INOD",
+      "name": "Innodata"
+    },
+    {
+      "rank": 17,
+      "ticker": "AMAL",
+      "name": "Amalgamated Financial"
+    },
+    {
+      "rank": 18,
+      "ticker": "INVA",
+      "name": "Innoviva"
+    },
+    {
+      "rank": 19,
+      "ticker": "ATEX",
+      "name": "Anterix"
+    },
+    {
+      "rank": 20,
+      "ticker": "DMLP",
+      "name": "Dorchester Minerals"
+    },
+    {
+      "rank": 21,
+      "ticker": "UVE",
+      "name": "Universal Insurance Holdings"
+    },
+    {
+      "rank": 22,
+      "ticker": "REX",
+      "name": "REX American Resources"
+    },
+    {
+      "rank": 23,
+      "ticker": "UPWK",
+      "name": "Upwork"
+    },
+    {
+      "rank": 24,
+      "ticker": "VISN",
+      "name": "Vistance Networks"
+    },
+    {
+      "rank": 25,
+      "ticker": "PFBC",
+      "name": "Preferred Bank"
+    },
+    {
+      "rank": 26,
+      "ticker": "AMSC",
+      "name": "American Superconductor"
+    },
+    {
+      "rank": 27,
+      "ticker": "ASIC",
+      "name": "Ategrity Specialty Insurance"
+    },
+    {
+      "rank": 28,
+      "ticker": "QNST",
+      "name": "QuinStreet"
+    },
+    {
+      "rank": 29,
+      "ticker": "YELP",
+      "name": "Yelp"
+    },
+    {
+      "rank": 30,
+      "ticker": "XPEL",
+      "name": "XPEL"
+    },
+    {
+      "rank": 31,
+      "ticker": "IRMD",
+      "name": "IRADIMED"
+    },
+    {
+      "rank": 32,
+      "ticker": "WLDN",
+      "name": "Willdan Group"
+    },
+    {
+      "rank": 33,
+      "ticker": "EVER",
+      "name": "EverQuote"
+    },
+    {
+      "rank": 34,
+      "ticker": "NSSC",
+      "name": "NAPCO Security Technologies"
+    },
+    {
+      "rank": 35,
+      "ticker": "HBNC",
+      "name": "Horizon Bancorp"
+    },
+    {
+      "rank": 36,
+      "ticker": "HRTG",
+      "name": "Heritage Insurance Holdings"
+    },
+    {
+      "rank": 37,
+      "ticker": "SENEA",
+      "name": "Seneca Foods (Class A)"
+    },
+    {
+      "rank": 38,
+      "ticker": "KRT",
+      "name": "Karat Packaging"
+    },
+    {
+      "rank": 39,
+      "ticker": "DAKT",
+      "name": "Daktronics"
+    },
+    {
+      "rank": 40,
+      "ticker": "ODC",
+      "name": "Oil-Dri Corporation of America"
+    },
+    {
+      "rank": 41,
+      "ticker": "REPX",
+      "name": "Riley Exploration Permian"
+    },
+    {
+      "rank": 42,
+      "ticker": "RIGL",
+      "name": "Rigel Pharmaceuticals"
+    },
+    {
+      "rank": 43,
+      "ticker": "FUBO",
+      "name": "FuboTV"
+    },
+    {
+      "rank": 44,
+      "ticker": "RCBC",
+      "name": "River City Bank"
+    },
+    {
+      "rank": 45,
+      "ticker": "OSPN",
+      "name": "OneSpan"
+    },
+    {
+      "rank": 46,
+      "ticker": "PAYS",
+      "name": "Paysign"
+    },
+    {
+      "rank": 47,
+      "ticker": "PXED",
+      "name": "Phoenix Education Partners"
+    },
+    {
+      "rank": 48,
+      "ticker": "CLMB",
+      "name": "Climb Global Solutions"
+    },
+    {
+      "rank": 49,
+      "ticker": "NRDS",
+      "name": "NerdWallet"
+    },
+    {
+      "rank": 50,
+      "ticker": "ROOT",
+      "name": "Root"
+    },
+    {
+      "rank": 51,
+      "ticker": "APEI",
+      "name": "American Public Education"
+    },
+    {
+      "rank": 52,
+      "ticker": "CASS",
+      "name": "Cass Information Systems"
+    },
+    {
+      "rank": 53,
+      "ticker": "JBSS",
+      "name": "John B. Sanfilippo & Son"
+    },
+    {
+      "rank": 54,
+      "ticker": "CARE",
+      "name": "Carter Bankshares"
+    },
+    {
+      "rank": 55,
+      "ticker": "ZVRA",
+      "name": "Zevra Therapeutics"
+    },
+    {
+      "rank": 56,
+      "ticker": "GCBC",
+      "name": "Greene County Bancorp"
+    },
+    {
+      "rank": 57,
+      "ticker": "WEYS",
+      "name": "Weyco Group"
+    },
+    {
+      "rank": 58,
+      "ticker": "IBEX",
+      "name": "ibex"
+    },
+    {
+      "rank": 59,
+      "ticker": "BSVN",
+      "name": "Bank7"
+    },
+    {
+      "rank": 60,
+      "ticker": "OBT",
+      "name": "Orange County Bancorp"
+    },
+    {
+      "rank": 61,
+      "ticker": "KOPN",
+      "name": "Kopin"
+    },
+    {
+      "rank": 62,
+      "ticker": "AII",
+      "name": "American Integrity Insurance Group"
+    },
+    {
+      "rank": 63,
+      "ticker": "NRIM",
+      "name": "Northrim BanCorp"
+    },
+    {
+      "rank": 64,
+      "ticker": "SBC",
+      "name": "SBC Medical Group Holdings"
+    },
+    {
+      "rank": 65,
+      "ticker": "PBYI",
+      "name": "Puma Biotechnology"
+    },
+    {
+      "rank": 66,
+      "ticker": "ACIC",
+      "name": "American Coastal Insurance"
+    },
+    {
+      "rank": 67,
+      "ticker": "PBAM",
+      "name": "Private Bancorp of America"
+    },
+    {
+      "rank": 68,
+      "ticker": "SD",
+      "name": "SandRidge Energy"
+    },
+    {
+      "rank": 69,
+      "ticker": "HBB",
+      "name": "Hamilton Beach Brands Holding"
+    },
+    {
+      "rank": 70,
+      "ticker": "PLBC",
+      "name": "Plumas Bancorp"
+    },
+    {
+      "rank": 71,
+      "ticker": "VALU",
+      "name": "Value Line"
+    },
+    {
+      "rank": 72,
+      "ticker": "CRMD",
+      "name": "CorMedix"
+    },
+    {
+      "rank": 73,
+      "ticker": "AMSF",
+      "name": "AMERISAFE"
+    },
+    {
+      "rank": 74,
+      "ticker": "NVEC",
+      "name": "NVE"
+    },
+    {
+      "rank": 75,
+      "ticker": "MNTN",
+      "name": "MNTN"
+    },
+    {
+      "rank": 76,
+      "ticker": "VOXR",
+      "name": "Vox Royalty"
+    },
+    {
+      "rank": 77,
+      "ticker": "TWIN",
+      "name": "Twin Disc"
+    },
+    {
+      "rank": 78,
+      "ticker": "CBNA",
+      "name": "Chain Bridge Bancorp"
+    },
+    {
+      "rank": 79,
+      "ticker": "FLXS",
+      "name": "Flexsteel Industries"
+    },
+    {
+      "rank": 80,
+      "ticker": "IDR",
+      "name": "Idaho Strategic Resources"
     }
   ]
 }

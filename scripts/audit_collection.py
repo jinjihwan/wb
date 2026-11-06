@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Write a reproducible 81-company data coverage report after scheduled refresh.
+"""Write a reproducible 161-company data coverage report after scheduled refresh.
 
 Coverage is a diagnostic only; missing non-applicable metrics must not be
 mistaken for a failed SEC filing. Keeps every original source JSON intact.
@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / 'data'
 METRICS = ('revenue', 'operatingIncome', 'netIncome', 'cfo', 'capex', 'shares', 'epsDiluted')
 TTM_METRICS = ('netIncome', 'cfo', 'capex', 'fcf', 'roe', 'roic')
-FINANCIAL_TICKERS = {'AXP', 'BAC', 'PGR', 'CB', 'RLI', 'ALLY', 'COF', 'JEF', 'CBOE'}
+FINANCIAL_TICKERS = {'ACIC', 'AII', 'ALLY', 'AMAL', 'AMSF', 'ASIC', 'AXP', 'BAC', 'BSVN', 'CARE', 'CASH', 'CB', 'CBNA', 'CBOE', 'COF', 'GCBC', 'HBNC', 'HRTG', 'JEF', 'LKFN', 'NRIM', 'OBT', 'PBAM', 'PFBC', 'PGR', 'PLBC', 'RCBC', 'RLI', 'ROOT', 'UVE'}
 
 
 def read(path):
@@ -26,7 +26,7 @@ def read(path):
 
 def tickers():
     watches = read(DATA / 'watchlists.json')
-    return {item['ticker']: item['name'] for group in ('great_companies_60', 'berkshire_top_25')
+    return {item['ticker']: item['name'] for group in ('great_companies_60', 'additional_watchlist_80', 'berkshire_top_25')
             for item in watches.get(group, [])}
 
 
