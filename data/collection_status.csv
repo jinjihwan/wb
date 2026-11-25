@@ -140,23 +140,23 @@ CBNA,Chain Bridge Bancorp,USD,9,2026-09-30,56,0,,2026-11-24,251,O,X,0,
 FLXS,Flexsteel Industries,USD,40,2026-06-30,148,39,"netIncome,cfo,capex,fcf,roe,roic",2026-11-24,251,X,O,1,최신 TTM 일부 미산출; 과거 PER 극단치 검증 필요
 IDR,Idaho Strategic Resources,USD,40,2026-09-30,56,25,roic,2026-11-24,251,O,O,0,최신 TTM 일부 미산출
 AXP,American Express,USD,40,2026-09-30,56,0,,2026-11-24,251,O,O,0,
-BAC,Bank of America,USD,40,2026-09-30,56,0,"capex,fcf",2026-11-24,250,O,O,0,최신 TTM 일부 미산출
-CVX,Chevron,USD,40,2026-09-30,56,0,roic,2026-11-23,256,O,O,3,최신 TTM 일부 미산출; 과거 PER 극단치 검증 필요
-OXY,Occidental Petroleum,USD,40,2026-09-30,56,0,roic,2026-11-23,256,O,O,3,최신 TTM 일부 미산출; 과거 PER 극단치 검증 필요
-CB,Chubb,USD,40,2026-09-30,56,0,"capex,fcf",2026-11-23,256,O,O,0,최신 TTM 일부 미산출
-KHC,Kraft Heinz,USD,40,2026-09-26,60,39,roic,2026-11-23,256,X,O,2,최신 TTM 일부 미산출; 과거 PER 극단치 검증 필요
-DVA,DaVita,USD,40,2026-09-30,56,34,roe,2026-11-23,256,O,O,3,최신 TTM 일부 미산출; 과거 PER 극단치 검증 필요
-DAL,Delta Air Lines,USD,40,2026-09-30,56,38,"capex,fcf",2026-11-23,256,O,O,4,최신 TTM 일부 미산출; 과거 PER 극단치 검증 필요
-SIRI,Sirius XM,USD,40,2026-09-30,56,35,,2026-11-23,256,O,O,4,과거 PER 극단치 검증 필요
-VRSN,VeriSign,USD,40,2026-09-30,56,39,"roe,roic",2026-11-23,256,O,O,0,최신 TTM 일부 미산출
-KR,Kroger,USD,40,2026-08-15,102,34,"netIncome,cfo,capex,fcf,roe,roic",2026-11-23,256,X,O,0,최신 TTM 일부 미산출
-LLYVK,Liberty Live Holdings,USD,5,2026-09-30,56,0,"capex,fcf,roe,roic",2026-11-23,256,X,X,0,최신 TTM 일부 미산출
-ALLY,Ally Financial,USD,40,2026-09-30,56,0,"capex,fcf",2026-11-23,256,O,O,3,최신 TTM 일부 미산출; 과거 PER 극단치 검증 필요
-LEN,Lennar,USD,40,2026-08-31,86,21,roic,2026-11-23,256,O,O,0,최신 TTM 일부 미산출
-NYT,The New York Times Company,USD,40,2026-09-30,56,40,roic,2026-11-23,256,O,O,4,최신 TTM 일부 미산출; 과거 PER 극단치 검증 필요
-COF,Capital One Financial,USD,40,2026-09-30,56,0,,2026-11-23,256,O,O,5,과거 PER 극단치 검증 필요
-LPX,Louisiana-Pacific,USD,40,2026-09-30,56,39,,2026-11-23,256,O,O,4,과거 PER 극단치 검증 필요
-NUE,Nucor,USD,40,2026-10-03,53,0,roic,2026-11-23,256,O,O,0,최신 TTM 일부 미산출
-M,Macy's,USD,40,2026-08-01,116,40,,2026-11-23,256,O,O,4,과거 PER 극단치 검증 필요
-NVR,NVR,USD,40,2026-09-30,56,0,roic,2026-11-23,256,O,O,0,최신 TTM 일부 미산출
-JEF,Jefferies Financial Group,USD,40,2026-08-31,86,0,"cfo,fcf",2026-11-23,256,X,O,2,최신 TTM 일부 미산출; 과거 PER 극단치 검증 필요
+BAC,Bank of America,USD,40,2026-09-30,56,0,"capex,fcf",2026-11-24,251,O,O,0,최신 TTM 일부 미산출
+CVX,Chevron,USD,40,2026-09-30,56,0,roic,2026-11-24,251,O,O,3,최신 TTM 일부 미산출; 과거 PER 극단치 검증 필요
+OXY,Occidental Petroleum,USD,40,2026-09-30,56,0,roic,2026-11-24,251,O,O,3,최신 TTM 일부 미산출; 과거 PER 극단치 검증 필요
+CB,Chubb,USD,40,2026-09-30,56,0,"capex,fcf",2026-11-24,251,O,O,0,최신 TTM 일부 미산출
+KHC,Kraft Heinz,USD,40,2026-09-26,60,39,roic,2026-11-24,251,X,O,2,최신 TTM 일부 미산출; 과거 PER 극단치 검증 필요
+DVA,DaVita,USD,40,2026-09-30,56,34,roe,2026-11-24,251,O,O,3,최신 TTM 일부 미산출; 과거 PER 극단치 검증 필요
+DAL,Delta Air Lines,USD,40,2026-09-30,56,38,"capex,fcf",2026-11-24,251,O,O,4,최신 TTM 일부 미산출; 과거 PER 극단치 검증 필요
+SIRI,Sirius XM,USD,40,2026-09-30,56,35,,2026-11-24,251,O,O,4,과거 PER 극단치 검증 필요
+VRSN,VeriSign,USD,40,2026-09-30,56,39,"roe,roic",2026-11-24,251,O,O,0,최신 TTM 일부 미산출
+KR,Kroger,USD,40,2026-08-15,102,34,"netIncome,cfo,capex,fcf,roe,roic",2026-11-24,251,X,O,0,최신 TTM 일부 미산출
+LLYVK,Liberty Live Holdings,USD,5,2026-09-30,56,0,"capex,fcf,roe,roic",2026-11-24,251,X,X,0,최신 TTM 일부 미산출
+ALLY,Ally Financial,USD,40,2026-09-30,56,0,"capex,fcf",2026-11-24,251,O,O,3,최신 TTM 일부 미산출; 과거 PER 극단치 검증 필요
+LEN,Lennar,USD,40,2026-08-31,86,21,roic,2026-11-24,251,O,O,0,최신 TTM 일부 미산출
+NYT,The New York Times Company,USD,40,2026-09-30,56,40,roic,2026-11-24,251,O,O,4,최신 TTM 일부 미산출; 과거 PER 극단치 검증 필요
+COF,Capital One Financial,USD,40,2026-09-30,56,0,,2026-11-24,251,O,O,5,과거 PER 극단치 검증 필요
+LPX,Louisiana-Pacific,USD,40,2026-09-30,56,39,,2026-11-24,251,O,O,4,과거 PER 극단치 검증 필요
+NUE,Nucor,USD,40,2026-10-03,53,0,roic,2026-11-24,251,O,O,0,최신 TTM 일부 미산출
+M,Macy's,USD,40,2026-08-01,116,40,,2026-11-24,251,O,O,4,과거 PER 극단치 검증 필요
+NVR,NVR,USD,40,2026-09-30,56,0,roic,2026-11-24,251,O,O,0,최신 TTM 일부 미산출
+JEF,Jefferies Financial Group,USD,40,2026-08-31,86,0,"cfo,fcf",2026-11-24,251,X,O,2,최신 TTM 일부 미산출; 과거 PER 극단치 검증 필요
